@@ -1,0 +1,2 @@
+C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\obj\Debug\PersonsDataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\obj\Debug\PersonsDataAccessLayer.csproj.CoreCompileInputs.cache

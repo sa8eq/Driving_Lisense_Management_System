@@ -1,0 +1,6 @@
+C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\bin\Debug\PersonsDataAccessLayer.dll
+C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\bin\Debug\PersonsDataAccessLayer.pdb
+C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\obj\Debug\PersonsDataAccessLayer.dll
+C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\obj\Debug\PersonsDataAccessLayer.pdb

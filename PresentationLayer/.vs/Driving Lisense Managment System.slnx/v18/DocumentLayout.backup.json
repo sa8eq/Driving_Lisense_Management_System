@@ -1,0 +1,93 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Project\\Driving Lisense Managment System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F7DC204A-153D-44F5-86D9-F3B6629030FD}|..\\PersonsBussinesLayer\\BussinesLayer.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\project\\personsbussineslayer\\clspersonbussineslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|PrisentationLayer.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\project\\driving lisense managment system\\frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|PrisentationLayer.csproj|solutionrelative:frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|PrisentationLayer.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\project\\driving lisense managment system\\frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|PrisentationLayer.csproj|solutionrelative:frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5D561ACA-DB68-4980-8EA4-B9C0DC207A51}|..\\PersonsDataAccessLayer\\DataAccessLayer.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\project\\personsdataaccesslayer\\clspersonsdataaccesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "clsPersonBussinesLayer.cs",
+              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Project\\PersonsBussinesLayer\\clsPersonBussinesLayer.cs",
+              "RelativeDocumentMoniker": "..\\PersonsBussinesLayer\\clsPersonBussinesLayer.cs",
+              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Project\\PersonsBussinesLayer\\clsPersonBussinesLayer.cs",
+              "RelativeToolTip": "..\\PersonsBussinesLayer\\clsPersonBussinesLayer.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAC0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T03:16:16.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "clsPersonsDataAccessLayer.cs",
+              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Project\\PersonsDataAccessLayer\\clsPersonsDataAccessLayer.cs",
+              "RelativeDocumentMoniker": "..\\PersonsDataAccessLayer\\clsPersonsDataAccessLayer.cs",
+              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Project\\PersonsDataAccessLayer\\clsPersonsDataAccessLayer.cs",
+              "RelativeToolTip": "..\\PersonsDataAccessLayer\\clsPersonsDataAccessLayer.cs",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAewJIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T02:59:34.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmManagePeople.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Project\\Driving Lisense Managment System\\frmManagePeople.cs",
+              "RelativeDocumentMoniker": "frmManagePeople.cs",
+              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Project\\Driving Lisense Managment System\\frmManagePeople.cs [Design]",
+              "RelativeToolTip": "frmManagePeople.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T02:52:43.15Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmManagePeople.cs",
+              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Project\\Driving Lisense Managment System\\frmManagePeople.cs",
+              "RelativeDocumentMoniker": "frmManagePeople.cs",
+              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Project\\Driving Lisense Managment System\\frmManagePeople.cs",
+              "RelativeToolTip": "frmManagePeople.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAswHEAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T02:28:50.769Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

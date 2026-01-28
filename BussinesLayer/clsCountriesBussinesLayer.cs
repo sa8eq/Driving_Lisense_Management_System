@@ -13,5 +13,9 @@ namespace PersonsBussinesLayer
        {
             return clsCountriesDataAccessLayer.GetAllCountries();
        }
+       static public object GetCountryName(int CountryID)
+       {
+            return clsCountriesDataAccessLayer.GetCountryName(CountryID);
+       }
     }
 }

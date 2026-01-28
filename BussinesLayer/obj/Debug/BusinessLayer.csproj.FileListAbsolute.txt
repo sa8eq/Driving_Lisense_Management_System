@@ -1,0 +1,9 @@
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\BussinesLayer\bin\Debug\BussinesLayer.dll
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\BussinesLayer\bin\Debug\BussinesLayer.pdb
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\BussinesLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\BussinesLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\BussinesLayer\obj\Debug\BusinessLayer.csproj.AssemblyReference.cache
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\BussinesLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\BussinesLayer\obj\Debug\Business.EA331CBA.Up2Date
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\BussinesLayer\obj\Debug\BussinesLayer.dll
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\BussinesLayer\obj\Debug\BussinesLayer.pdb

@@ -1,6 +1,6 @@
-C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\bin\Debug\PersonsDataAccessLayer.dll
-C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\bin\Debug\PersonsDataAccessLayer.pdb
-C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
-C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
-C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\obj\Debug\PersonsDataAccessLayer.dll
-C:\Users\sadeq\Desktop\Road Map\Course 19\Project\PersonsDataAccessLayer\obj\Debug\PersonsDataAccessLayer.pdb
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

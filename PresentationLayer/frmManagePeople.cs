@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinesLayer;
-namespace Driving_Lisense_Managment_System
+namespace PresentationLayer
 {
     public partial class frmManagePeople : Form
     {
@@ -39,6 +39,7 @@ namespace Driving_Lisense_Managment_System
         }
         private void RefreshForm()
         {
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = clsPersonBussinesLayer.GetAllPersons();
             lblRecords.Text = clsPersonBussinesLayer.GetRowsCount().ToString();
             cmbFilter.SelectedIndex = 0;
@@ -56,9 +57,9 @@ namespace Driving_Lisense_Managment_System
             frm.ShowDialog();
             this.RefreshForm();
         }
-        private void _FilerView()
+        private void _FilterView()
         {
-            if (cmbFilter.Text != "None" && txtFilter.Text != "")
+            if (cmbFilter.Text != "None" && !string.IsNullOrWhiteSpace(txtFilter.Text))
             {
                 dataGridView1.DataSource = clsPersonBussinesLayer.GetAllPersonsWithFilter(cmbFilter.Text, txtFilter.Text);
             }
@@ -69,7 +70,7 @@ namespace Driving_Lisense_Managment_System
         }
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
-            _FilerView();
+            _FilterView();
         }
 
         private void phoneCallToolStripMenuItem_Click(object sender, EventArgs e)
@@ -111,6 +112,24 @@ namespace Driving_Lisense_Managment_System
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _DeletePerson();
+            RefreshForm();
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int SelectedID = (int)dataGridView1.CurrentRow.Cells["PersonID"].Value;
+            frmPersonDetails frm = new frmPersonDetails(SelectedID);
+            
+            frm.ShowDialog();
+
+        }
+
+        private void edToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int SelectedID = (int)dataGridView1.CurrentRow.Cells["PersonID"].Value;
+            frmUpdatePerson frm = new frmUpdatePerson(SelectedID);
+            frm.ShowDialog();
+           
             RefreshForm();
         }
     }

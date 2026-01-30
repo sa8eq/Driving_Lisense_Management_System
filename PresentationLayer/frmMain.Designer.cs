@@ -1,4 +1,4 @@
-﻿namespace PresentationLayer
+﻿namespace DVLD
 {
     partial class frmMain
     {
@@ -55,7 +55,7 @@
             // 
             // toolStripButton1
             // 
-            this.toolStripButton1.Image = global::PresentationLayer.Properties.Resources.Applications_64;
+            this.toolStripButton1.Image = global::DVLD.Properties.Resources.Applications_64;
             this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
@@ -64,7 +64,7 @@
             // 
             // toolStripButton2
             // 
-            this.toolStripButton2.Image = global::PresentationLayer.Properties.Resources.People_64;
+            this.toolStripButton2.Image = global::DVLD.Properties.Resources.People_64;
             this.toolStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
@@ -74,7 +74,7 @@
             // 
             // toolStripButton3
             // 
-            this.toolStripButton3.Image = global::PresentationLayer.Properties.Resources.Drivers_64;
+            this.toolStripButton3.Image = global::DVLD.Properties.Resources.Drivers_64;
             this.toolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
@@ -83,7 +83,7 @@
             // 
             // toolStripButton4
             // 
-            this.toolStripButton4.Image = global::PresentationLayer.Properties.Resources.Users_2_64;
+            this.toolStripButton4.Image = global::DVLD.Properties.Resources.Users_2_64;
             this.toolStripButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
@@ -92,7 +92,7 @@
             // 
             // toolStripButton5
             // 
-            this.toolStripButton5.Image = global::PresentationLayer.Properties.Resources.account_settings_64;
+            this.toolStripButton5.Image = global::DVLD.Properties.Resources.account_settings_64;
             this.toolStripButton5.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
@@ -103,7 +103,7 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::PresentationLayer.Properties.Resources.Driver_Main;
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.Driver_Main;
             this.pictureBox1.Location = new System.Drawing.Point(0, 71);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1002, 379);
@@ -118,8 +118,10 @@
             this.ClientSize = new System.Drawing.Size(1002, 450);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.toolStrip1);
+            this.IsMdiContainer = true;
             this.Name = "frmMain";
             this.Text = "Driving Lisence Managment System";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

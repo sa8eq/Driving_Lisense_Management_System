@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PresentationLayer
+namespace DVLD
 {
     public partial class frmMain : Form
     {
@@ -19,8 +19,20 @@ namespace PresentationLayer
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            Form frm = new frmManagePeople();
-            frm.ShowDialog();
+            Form frm1 = Application.OpenForms["frmManagePeople"];
+            if(frm1!=null)
+            {
+                frm1.Focus();
+            }
+            else
+            {
+                pictureBox1.SendToBack();
+                frmManagePeople frm = new frmManagePeople();
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            
         }
     }
 }

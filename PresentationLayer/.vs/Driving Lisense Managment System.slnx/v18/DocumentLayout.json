@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\persons\\frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:persons\\frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\persons\\frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:persons\\frmmanagepeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +27,31 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmManagePeople.cs",
+              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmManagePeople.cs",
+              "RelativeDocumentMoniker": "Persons\\frmManagePeople.cs",
+              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmManagePeople.cs",
+              "RelativeToolTip": "Persons\\frmManagePeople.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwBwAAAB8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T05:59:25.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmManagePeople.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmManagePeople.cs",
+              "RelativeDocumentMoniker": "Persons\\frmManagePeople.cs",
+              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmManagePeople.cs [Design]",
+              "RelativeToolTip": "Persons\\frmManagePeople.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-30T05:59:22.432Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

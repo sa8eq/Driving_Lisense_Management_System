@@ -226,6 +226,7 @@ namespace DataAccessLayer
                 object result = Command.ExecuteScalar();
                 if (result != null && int.TryParse(result.ToString(), out InsertedID))
                 {
+                    Connection.Close();
                     return InsertedID;
                 }
                 Connection.Close();

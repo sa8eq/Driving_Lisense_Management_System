@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD.Persons;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,11 +17,10 @@ namespace DVLD
         {
             InitializeComponent();
         }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
+        private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm1 = Application.OpenForms["frmManagePeople"];
-            if(frm1!=null)
+            if (frm1 != null)
             {
                 frm1.Focus();
             }
@@ -32,7 +32,16 @@ namespace DVLD
                 frm.Show();
                 frm.BringToFront();
             }
-            
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.SendToBack();
+            frmManageUsers frm = new frmManageUsers();
+            frm.MdiParent = this;
+            frm.Show();
+            frm.BringToFront();
+
         }
     }
 }

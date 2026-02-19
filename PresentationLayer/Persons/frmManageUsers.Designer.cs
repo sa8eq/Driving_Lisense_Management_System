@@ -38,6 +38,7 @@
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbIsActive = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -56,10 +57,14 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 286);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(776, 253);
             this.dataGridView1.TabIndex = 2;
             // 
@@ -91,6 +96,7 @@
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(197, 20);
             this.txtFilter.TabIndex = 12;
+            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
             // 
             // cmbFilter
             // 
@@ -158,11 +164,29 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // cmbIsActive
+            // 
+            this.cmbIsActive.AutoCompleteCustomSource.AddRange(new string[] {
+            "All",
+            "Yes",
+            "No"});
+            this.cmbIsActive.FormattingEnabled = true;
+            this.cmbIsActive.Items.AddRange(new object[] {
+            "All",
+            "Yes",
+            "No"});
+            this.cmbIsActive.Location = new System.Drawing.Point(280, 259);
+            this.cmbIsActive.Name = "cmbIsActive";
+            this.cmbIsActive.Size = new System.Drawing.Size(121, 21);
+            this.cmbIsActive.TabIndex = 13;
+            this.cmbIsActive.SelectedIndexChanged += new System.EventHandler(this.cmbIsActive_SelectedIndexChanged);
+            // 
             // frmManageUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 597);
+            this.Controls.Add(this.cmbIsActive);
             this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.cmbFilter);
             this.Controls.Add(this.lblFilterBy);
@@ -195,5 +219,6 @@
         private System.Windows.Forms.TextBox txtFilter;
         private System.Windows.Forms.ComboBox cmbFilter;
         private System.Windows.Forms.Label lblFilterBy;
+        private System.Windows.Forms.ComboBox cmbIsActive;
     }
 }

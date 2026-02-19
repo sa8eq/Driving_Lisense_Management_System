@@ -1,4 +1,5 @@
-﻿using DVLD.Persons;
+﻿using BussinesLayer;
+using DVLD.Persons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,13 @@ namespace DVLD
         public frmMain()
         {
             InitializeComponent();
+        }
+        private clsUser _User;
+        public frmMain(clsUser CurrentUser)
+        {
+            InitializeComponent();
+            _User = CurrentUser;
+            txtCurrentUserID.Text = _User.UserID.ToString();
         }
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -42,6 +50,12 @@ namespace DVLD
             frm.Show();
             frm.BringToFront();
 
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _User = null;
+            this.Close();
         }
     }
 }

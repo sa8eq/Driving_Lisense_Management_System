@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\persons\\frmadduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:persons\\frmadduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\persons\\frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:persons\\frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\persons\\frmadduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:persons\\frmadduser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\persons\\frmadduser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:persons\\frmadduser.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\persons\\frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:persons\\frmmanageusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmAddUser.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmAddUser.Designer.cs",
-              "RelativeDocumentMoniker": "Persons\\frmAddUser.Designer.cs",
-              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmAddUser.Designer.cs",
-              "RelativeToolTip": "Persons\\frmAddUser.Designer.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAQwJIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "frmManageUsers.cs",
+              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmManageUsers.cs",
+              "RelativeDocumentMoniker": "Persons\\frmManageUsers.cs",
+              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmManageUsers.cs",
+              "RelativeToolTip": "Persons\\frmManageUsers.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAkwJwAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T08:42:49.436Z",
+              "WhenOpened": "2026-02-19T13:47:16.011Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmAddUser.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmAddUser.cs",
-              "RelativeDocumentMoniker": "Persons\\frmAddUser.cs",
-              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmAddUser.cs [Design]",
-              "RelativeToolTip": "Persons\\frmAddUser.cs [Design]",
+              "Title": "frmManageUsers.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmManageUsers.cs",
+              "RelativeDocumentMoniker": "Persons\\frmManageUsers.cs",
+              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmManageUsers.cs [Design]",
+              "RelativeToolTip": "Persons\\frmManageUsers.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T08:38:50.703Z",
+              "WhenOpened": "2026-02-19T13:46:19.353Z",
               "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmAddUser.cs",
-              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmAddUser.cs",
-              "RelativeDocumentMoniker": "Persons\\frmAddUser.cs",
-              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Persons\\frmAddUser.cs",
-              "RelativeToolTip": "Persons\\frmAddUser.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAiwCoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-05T08:29:22.473Z",
-              "EditorCaption": ""
             }
           ]
         }

@@ -13,14 +13,22 @@ namespace DVLD.Persons
 {
     public partial class frmAddUser : Form
     {
+        enum enMode { AddNew = 0, Update = 1 }
+        enMode Mode;
+        int _PersonID;
+        int _UserID = -1;
+        clsUser _User;
         public frmAddUser()
         {
             InitializeComponent();
         }
-        enum enMode { AddNew = 0, Update = 1 }
-        enMode Mode;
-        int _PersonID;
-        clsUser _User;
+        public frmAddUser(int UserID)
+        {
+            InitializeComponent();
+            _UserID = UserID;
+            Mode = (_UserID == -1) ? enMode.AddNew : enMode.Update;
+        }
+        
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -43,9 +51,42 @@ namespace DVLD.Persons
                 errorProvider1.SetError(txtConfirmPassword, null);
             }
         }
+        
         private void frmAddUser_Load(object sender, EventArgs e)
         {
             ctrlPersonDetailsWithFilter1.OnPersonSelected += ctrlPersonDetailsWithFilter1_OnPersonSelected;
+
+            if (Mode == enMode.AddNew)
+            {
+                this.Text = "Add New User";
+                _User = new clsUser();
+                btnNext.Enabled = false;
+                return;
+            }
+
+            this.Text = "Update User";
+            _User = clsUser.FindUser(_UserID);
+
+            if (_User == null)
+            {
+                MessageBox.Show("Error: User Not Found");
+                this.Close();
+                return;
+            }
+
+            ctrlPersonDetailsWithFilter1.LoadPersonInfo(_User.PersonID);
+            ctrlPersonDetailsWithFilter1.FilterEnabled = false;
+
+            _PersonID = _User.PersonID;
+            txtUsername.Text = _User.Username;
+            txtPassword.Text = _User.Password;
+            txtConfirmPassword.Text = _User.Password;
+            cbxIsActive.Checked = _User.IsActive;
+            lblUserID.Text = _User.UserID.ToString();
+
+            btnNext.Enabled = true;
+
+
         }
         private void ctrlPersonDetailsWithFilter1_OnPersonSelected(int PersonID)
         {
@@ -79,50 +120,55 @@ namespace DVLD.Persons
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            _User = new clsUser();
-            _User.Username = txtUsername.Text;
-            _User.Password = txtPassword.Text.ToString();
-            _User.PersonID = _PersonID;
-            _User.IsActive = cbxIsActive.Checked;
-            if(!_IsValidUser())
-            {
-                MessageBox.Show("New User Should Have A Record In Persons Data Base");
-                return;
-            }
-            if(Mode == enMode.AddNew && clsUser.IsUserExistForPersonID(_User.PersonID))
-            {
-                MessageBox.Show("You Cant Have More Than 1 User Profile For Each Person");
-                return;
-            }
-            
             if (!this.ValidateChildren())
             {
-                MessageBox.Show("Some Fields Are Missings");
+                MessageBox.Show("Some fields are missing or invalid!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if(_User.Save())
+            _User.Username = txtUsername.Text.Trim();
+            _User.Password = txtPassword.Text.Trim();
+            _User.PersonID = _PersonID;
+            _User.IsActive = cbxIsActive.Checked;
+
+            if (Mode == enMode.AddNew && clsUser.IsUserExistForPersonID(_User.PersonID))
+            {
+                MessageBox.Show("This person already has a user account!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (_User.Save())
             {
                 Mode = enMode.Update;
-                MessageBox.Show("Data Saved Successfully", "Saved", MessageBoxButtons.OK);
+                this.Text = "Update User";
                 lblUserID.Text = _User.UserID.ToString();
+                MessageBox.Show("Data Saved Successfully", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("Data Saving Failed", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Data Saving Failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void txtUsername_Validating(object sender, CancelEventArgs e)
         {
-            if (clsUser.IsUserExist(txtUsername.Text))
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtUsername, "This Username is in use");
+                errorProvider1.SetError(txtUsername, "This field is mandatory");
+                return;
             }
-            else if (string.IsNullOrWhiteSpace(txtUsername.Text))
+
+            if (Mode == enMode.AddNew || (Mode == enMode.Update && txtUsername.Text != _User.Username))
             {
-                e.Cancel = true;
-                errorProvider1.SetError(txtUsername, "This Field Is Mandatory");
+                if (clsUser.IsUserExist(txtUsername.Text.Trim()))
+                {
+                    e.Cancel = true;
+                    errorProvider1.SetError(txtUsername, "Username is already used by another user");
+                }
+                else
+                {
+                    errorProvider1.SetError(txtUsername, null);
+                }
             }
             else
             {

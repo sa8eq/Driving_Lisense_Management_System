@@ -411,6 +411,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ctrlPersonDetails";
             this.Size = new System.Drawing.Size(896, 379);
+            this.Load += new System.EventHandler(this.ctrlPersonDetails_Load);
             this.grbPersonDetails.ResumeLayout(false);
             this.grbPersonDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

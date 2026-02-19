@@ -51,6 +51,7 @@ namespace DataAccessLayer
 
             return IsFound;
         }
+       
         static public DataTable GetAllUsers()
         {
             DataTable dt = new DataTable();
@@ -121,6 +122,28 @@ namespace DataAccessLayer
             }
             return InsertedID;
         }
+        static public bool DeleteUser(int UserID)
+        {
+            int AffectedRows = 0;
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"delete from Users where UserID = @UserID";
+            SqlCommand Command = new SqlCommand(query, Connection);
+            Command.Parameters.AddWithValue("@UserID", UserID);
+            try
+            {
+                Connection.Open();
+                AffectedRows = Command.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+            return (AffectedRows > 0);
+        }
         static public bool IsUSerExistForPersonID(int PersonID)
         {
             bool isFound = false;
@@ -158,5 +181,95 @@ namespace DataAccessLayer
 
             return isFound;
         }
+        static public bool IsUserExist(int UserID)
+        {
+            bool isFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = "SELECT Found=1 FROM Users WHERE UserID = @UserID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@UserID", UserID);
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                isFound = (result != null);
+            }
+            catch { isFound = false; }
+            finally { connection.Close(); }
+
+            return isFound;
+        }
+        static public bool FindUserByUserID(int UserID, ref int PersonID, ref string Username, ref string Password, ref bool IsActive)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM Users WHERE UserID = @UserID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@UserID", UserID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    PersonID = (int)reader["PersonID"];
+                    Username = (string)reader["UserName"];
+                    Password = (string)reader["Password"];
+                    IsActive = (bool)reader["IsActive"];
+                }
+                else
+                {
+                    isFound = false;
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+        static public bool UpdateUser(int UserID, int PersonID, string Username, string Password, bool IsActive)
+        {
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"UPDATE Users  
+                    SET PersonID = @PersonID, 
+                        UserName = @UserName, 
+                        Password = @Password, 
+                        IsActive = @IsActive 
+                    WHERE UserID = @UserID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@UserName", Username);
+            command.Parameters.AddWithValue("@Password", Password);
+            command.Parameters.AddWithValue("@IsActive", IsActive);
+            command.Parameters.AddWithValue("@UserID", UserID);
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch { return false; }
+            finally { connection.Close(); }
+
+            return (rowsAffected > 0);
+        }
+
+
     }
 }

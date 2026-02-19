@@ -24,6 +24,8 @@ namespace DVLD.Persons
         {
             frmAddUser frm = new frmAddUser();
             frm.ShowDialog();
+
+            _RefrshForm();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -155,6 +157,69 @@ namespace DVLD.Persons
                     break;
             }
             lblRecordsCount.Text = dataGridView1.Rows.Count.ToString();
+        }
+
+        private void sendSMSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This Feature Is Yet To Be Implemented");
+        }
+
+        private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This Feature Is Yet To Be Implemented");
+        }
+
+        private void addNewUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnAddUser_Click(sender, e);
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo frm = new frmUserInfo(Convert.ToInt32(dataGridView1.CurrentRow.Cells["UserID"].Value));
+            frm.ShowDialog();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow != null)
+            {
+                int UserID = Convert.ToInt32(dataGridView1.CurrentRow.Cells["UserID"].Value);
+                if (MessageBox.Show("Are You Sure You Want To Delete This User?", "Delete User", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (clsUser.DeleteUser(UserID))
+                    {
+                        MessageBox.Show("User Deleted Successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed Deleting User");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please Choose A User To Delete");
+            }
+            _RefrshForm();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int SelectedID = (int)dataGridView1.CurrentRow.Cells["UserID"].Value;
+            frmAddUser frm = new frmAddUser(SelectedID);
+            frm.ShowDialog();
+
+            _RefrshForm();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int SelectedID = (int)dataGridView1.CurrentRow.Cells["UserID"].Value;
+            frmChangePassword frm = new frmChangePassword(SelectedID);
+            frm.ShowDialog();
+
+            _RefrshForm();
         }
     }
 }

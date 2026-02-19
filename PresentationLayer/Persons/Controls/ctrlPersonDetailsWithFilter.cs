@@ -65,7 +65,14 @@ namespace DVLD
         {
             cmbFilter.SelectedIndex = 1;
             txtFilter.Text = PersonID.ToString();
-            FindNow();
+
+            ctrlPersonDetails1.LoadPersonInfo(PersonID);
+
+         
+            if (OnPersonSelected != null)
+                OnPersonSelected(ctrlPersonDetails1.PersonID);
+
+            FilterEnabled = false;
         }
         private void FindNow()
         {

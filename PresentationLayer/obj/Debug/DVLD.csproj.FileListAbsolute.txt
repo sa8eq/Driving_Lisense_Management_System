@@ -22,3 +22,5 @@ C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\Pres
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Persons.frmManageUsers.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Persons.frmAddUser.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.frmLogIn.resources
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Persons.frmUserInfo.resources
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Persons.frmChangePassword.resources

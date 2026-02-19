@@ -174,7 +174,6 @@ namespace DVLD
         {
             if (!this.ValidateChildren())
             {
-                // إذا رجعت false، نعرض رسالة للمستخدم ونوقف الحفظ
                 MessageBox.Show("Some fields are not valid!, please put the mouse over the red icon(s) to see the error",
                                 "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

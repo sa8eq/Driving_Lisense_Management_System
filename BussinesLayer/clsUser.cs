@@ -29,7 +29,7 @@ namespace BussinesLayer
             this.IsActive = false;
             Mode = enMode.AddNewUser;
         }
-        public clsUser(int UserID, int ParsonID, string Username, string Password, bool IsActive)
+        public clsUser(int UserID, int PersonID, string Username, string Password, bool IsActive)
         {
             this.UserID = UserID;
             this.PersonID = PersonID;
@@ -55,6 +55,23 @@ namespace BussinesLayer
                 return null;
             }
         }
+        static public clsUser FindUser(int UserID)
+        {
+            int PersonID = 0;
+            string Username = "";
+            string Password = "";
+            bool IsActive = false;
+            bool IsFound = clsUserData.FindUserByUserID(UserID, ref PersonID, ref Username, ref Password, ref IsActive);
+            if(IsFound)
+            {
+                return new clsUser(UserID, PersonID, Username, Password, IsActive);
+
+            }
+            else
+            {
+                return null;
+            }
+        }
         static public DataTable GetAllUsers()
         {
             return clsUserData.GetAllUsers();
@@ -65,13 +82,14 @@ namespace BussinesLayer
             return (this.UserID) != -1;
            
         }
-        //private bool _UpdateUser()
-        //{
 
-        //}
+        private bool _UpdateUser()
+        {
+            return clsUserData.UpdateUser(this.UserID, this.PersonID, this.Username, this.Password, this.IsActive);
+        }
         public bool Save()
         {
-            switch(Mode)
+            switch (Mode)
             {
                 case enMode.AddNewUser:
                     if (_AddNewUser())
@@ -79,19 +97,11 @@ namespace BussinesLayer
                         this.Mode = enMode.UpdateUser;
                         return true;
                     }
-                    else
-                    {
-                        return false;
-                    }
-                //case enMode.UpdateUser:
-                //    if(_UpdateUser())
-                //    {
-                //        return true;
-                //    }
-                //    else
-                //    {
-                //        return false;
-                //    }
+                    return false;
+
+                case enMode.UpdateUser:
+                    return _UpdateUser(); 
+
                 default:
                     return false;
             }
@@ -103,6 +113,10 @@ namespace BussinesLayer
         public static bool IsUserExist(string Username)
         {
             return clsUserData.IsUserExist(Username);
+        }
+        public static bool DeleteUser(int UserID)
+        {
+            return clsUserData.DeleteUser(UserID);
         }
     }
 }

@@ -57,5 +57,17 @@ namespace DVLD
             _User = null;
             this.Close();
         }
+
+        private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo frm = new frmUserInfo(_User.UserID);
+            frm.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frm = new frmChangePassword(_User.UserID);
+            frm.ShowDialog();
+        }
     }
 }

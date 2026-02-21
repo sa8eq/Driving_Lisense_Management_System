@@ -13,13 +13,19 @@ namespace BussinesLayer
     public class clsUser
     {
         public enum enMode { AddNewUser =0, UpdateUser = 1}
-        public enMode Mode;
+        public enMode Mode = enMode.AddNewUser;
+
         public int UserID { set; get; }
+
         public int PersonID { set; get; }
-        public string Username { set; get; } 
-        public string Password { set; get; }
-        public bool IsActive { set; get; }
         public clsPerson PersonInfo;
+
+        public string Username { set; get; } 
+
+        public string Password { set; get; }
+
+        public bool IsActive { set; get; }
+
         public clsUser()
         {
             this.UserID = -1;
@@ -29,7 +35,7 @@ namespace BussinesLayer
             this.IsActive = false;
             Mode = enMode.AddNewUser;
         }
-        public clsUser(int UserID, int PersonID, string Username, string Password, bool IsActive)
+        private clsUser(int UserID, int PersonID, string Username, string Password, bool IsActive)
         {
             this.UserID = UserID;
             this.PersonID = PersonID;
@@ -39,30 +45,25 @@ namespace BussinesLayer
             this.PersonInfo = clsPerson.Find(this.PersonID);
             Mode = enMode.UpdateUser;
         }
-        static public clsUser FindUser(string Username, string Password)
-        {
-            int _UserID = -1;
-            int _PersonID = -1;
-            bool _IsActive = false;
 
-            bool IsFound = clsUserData.FindUserByUserName(Username, Password ,ref _UserID, ref _PersonID, ref _IsActive);
-            if(IsFound)
-            {
-                return new clsUser(_UserID, _PersonID, Username, Password, _IsActive);
-            }
-            else
-            {
-                return null;
-            }
+        private bool _AddNewUser()
+        {
+            this.UserID = clsUserData.AddNewUser(this.PersonID, this.Username, this.Password, this.IsActive);
+            return (this.UserID) != -1;
+
         }
-        static public clsUser FindUser(int UserID)
+        private bool _UpdateUser()
+        {
+            return clsUserData.UpdateUser(this.UserID, this.PersonID, this.Username, this.Password, this.IsActive);
+        }
+        static public clsUser FindByUserID(int UserID)
         {
             int PersonID = 0;
             string Username = "";
             string Password = "";
             bool IsActive = false;
-            bool IsFound = clsUserData.FindUserByUserID(UserID, ref PersonID, ref Username, ref Password, ref IsActive);
-            if(IsFound)
+            bool IsFound = clsUserData.GetUserInfoByUserID(UserID, ref PersonID, ref Username, ref Password, ref IsActive);
+            if (IsFound)
             {
                 return new clsUser(UserID, PersonID, Username, Password, IsActive);
 
@@ -72,20 +73,38 @@ namespace BussinesLayer
                 return null;
             }
         }
-        static public DataTable GetAllUsers()
+        static public clsUser FindByPErsonID(int PersonID)
         {
-            return clsUserData.GetAllUsers();
-        }
-        private bool _AddNewUser()
-        {
-            this.UserID = clsUserData.AddNewUser(this.PersonID, this.Username, this.Password, this.IsActive);
-            return (this.UserID) != -1;
-           
-        }
+            int UserID = 0;
+            string Username = "";
+            string Password = "";
+            bool IsActive = false;
+            bool IsFound = clsUserData.GetUserInfoByPersonID(PersonID, ref UserID, ref Username, ref Password, ref IsActive);
+            if (IsFound)
+            {
+                return new clsUser(UserID, PersonID, Username, Password, IsActive);
 
-        private bool _UpdateUser()
+            }
+            else
+            {
+                return null;
+            }
+        }
+        static public clsUser FindUserByUserNameAndPassword(string Username, string Password)
         {
-            return clsUserData.UpdateUser(this.UserID, this.PersonID, this.Username, this.Password, this.IsActive);
+            int _UserID = -1;
+            int _PersonID = -1;
+            bool _IsActive = false;
+
+            bool IsFound = clsUserData.GetUserInfoByUsernameAndPassword(Username, Password ,ref _UserID, ref _PersonID, ref _IsActive);
+            if(IsFound)
+            {
+                return new clsUser(_UserID, _PersonID, Username, Password, _IsActive);
+            }
+            else
+            {
+                return null;
+            }
         }
         public bool Save()
         {
@@ -97,26 +116,39 @@ namespace BussinesLayer
                         this.Mode = enMode.UpdateUser;
                         return true;
                     }
-                    return false;
+                    else
+                    {
+                        return false;
+                    }
 
                 case enMode.UpdateUser:
-                    return _UpdateUser(); 
+                    return _UpdateUser();
 
                 default:
                     return false;
             }
         }
-        public static bool IsUserExistForPersonID(int PersonID)
+        static public DataTable GetAllUsers()
         {
-            return clsUserData.IsUSerExistForPersonID(PersonID);
-        }
-        public static bool IsUserExist(string Username)
-        {
-            return clsUserData.IsUserExist(Username);
+            return clsUserData.GetAllUsers();
         }
         public static bool DeleteUser(int UserID)
         {
             return clsUserData.DeleteUser(UserID);
         }
+        public static bool IsUserExist(string Username)
+        {
+            return clsUserData.IsUserExist(Username);
+        }
+        public static bool IsUserExist(int UserID)
+        {
+            return clsUserData.IsUserExist(UserID);
+        }
+        public static bool IsUserExistForPersonID(int PersonID)
+        {
+            return clsUserData.IsUserExistForPersonID(PersonID);
+        }
+        
+        
     }
 }

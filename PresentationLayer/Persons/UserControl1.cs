@@ -1,5 +1,4 @@
-﻿using BussinesLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,12 +10,11 @@ using System.Windows.Forms;
 
 namespace DVLD.Persons
 {
-    public partial class frmUserInfo : Form
+    public partial class UserControl1 : UserControl
     {
-        public frmUserInfo()
+        public UserControl1()
         {
             InitializeComponent();
         }
-        
     }
 }

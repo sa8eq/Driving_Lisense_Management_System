@@ -1,4 +1,5 @@
 ﻿using BussinesLayer;
+using DVLD.Classess;
 using DVLD.Persons;
 using System;
 using System.Collections.Generic;
@@ -14,17 +15,14 @@ namespace DVLD
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        frmLogIn _frmLogin;
+        public frmMain(frmLogIn frm)
         {
             InitializeComponent();
+            _frmLogin = frm;
+            lblCurrentUserID.Text = clsGlobal.CurrentUser.UserID.ToString();
         }
-        private clsUser _User;
-        public frmMain(clsUser CurrentUser)
-        {
-            InitializeComponent();
-            _User = CurrentUser;
-            txtCurrentUserID.Text = _User.UserID.ToString();
-        }
+        
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form frm1 = Application.OpenForms["frmManagePeople"];
@@ -54,19 +52,19 @@ namespace DVLD
 
         private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _User = null;
+            _frmLogin.Show();
             this.Close();
         }
 
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUserInfo frm = new frmUserInfo(_User.UserID);
-            frm.ShowDialog();
+            frmUserInfo frm = new frmUserInfo(clsGlobal.CurrentUser.UserID);
+            frm.Show();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmChangePassword frm = new frmChangePassword(_User.UserID);
+            frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserID);
             frm.ShowDialog();
         }
     }

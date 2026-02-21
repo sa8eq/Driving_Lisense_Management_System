@@ -14,24 +14,16 @@ namespace DVLD.Persons
 {
     public partial class frmManageUsers : Form
     {
-        
+        private DataTable _dtAllUsers;
         public frmManageUsers()
         {
             InitializeComponent();
         }
-        private DataTable _dtAllUsers;
-        private void btnAddUser_Click(object sender, EventArgs e)
-        {
-            frmAddUser frm = new frmAddUser();
-            frm.ShowDialog();
-
-            _RefrshForm();
-        }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
         private void _RefrshForm()
         {
             cmbIsActive.Enabled = false;
@@ -41,7 +33,7 @@ namespace DVLD.Persons
 
             _dtAllUsers = clsUser.GetAllUsers();
             dataGridView1.DataSource = _dtAllUsers;
-            if(dataGridView1.Rows.Count>0)
+            if (dataGridView1.Rows.Count > 0)
             {
                 dataGridView1.Columns[0].HeaderText = "User ID";
                 dataGridView1.Columns[1].HeaderText = "Person ID";
@@ -54,30 +46,32 @@ namespace DVLD.Persons
             cmbFilter.SelectedIndex = 0;
             lblRecordsCount.Text = _dtAllUsers.Rows.Count.ToString();
         }
+
         private void frmManageUsers_Load(object sender, EventArgs e)
         {
             _RefrshForm();
         }
+
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
             string FilterColumn = "";
 
             switch (cmbFilter.Text)
             {
-                case "User ID": 
-                    FilterColumn = "UserID"; 
+                case "User ID":
+                    FilterColumn = "UserID";
                     break;
-                case "Person ID": 
-                    FilterColumn = "PersonID"; 
+                case "Person ID":
+                    FilterColumn = "PersonID";
                     break;
-                case "Username": 
-                    FilterColumn = "Username"; 
+                case "Username":
+                    FilterColumn = "Username";
                     break;
-                case "Password": 
-                    FilterColumn = "Password"; 
+                case "Password":
+                    FilterColumn = "Password";
                     break;
-                default: 
-                    FilterColumn = "None"; 
+                default:
+                    FilterColumn = "None";
                     break;
             }
 
@@ -110,9 +104,10 @@ namespace DVLD.Persons
             _dtAllUsers.DefaultView.RowFilter = filterExpression;
             lblRecordsCount.Text = dataGridView1.Rows.Count.ToString();
         }
+
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cmbFilter.SelectedIndex==0)
+            if (cmbFilter.SelectedIndex == 0)
             {
                 cmbIsActive.Enabled = false;
                 cmbIsActive.Visible = false;
@@ -120,12 +115,13 @@ namespace DVLD.Persons
                 txtFilter.Visible = false;
 
             }
-            else if(cmbFilter.SelectedIndex == 5)
+            else if (cmbFilter.SelectedIndex == 5)
             {
                 cmbIsActive.Enabled = true;
                 cmbIsActive.Visible = true;
                 txtFilter.Enabled = false;
                 txtFilter.Visible = false;
+                cmbIsActive.SelectedIndex = 0;
             }
             else
             {
@@ -159,6 +155,14 @@ namespace DVLD.Persons
             lblRecordsCount.Text = dataGridView1.Rows.Count.ToString();
         }
 
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frm = new frmAddEditUser();
+            frm.ShowDialog();
+
+            _RefrshForm();
+        }
+
         private void sendSMSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This Feature Is Yet To Be Implemented");
@@ -177,7 +181,7 @@ namespace DVLD.Persons
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUserInfo frm = new frmUserInfo(Convert.ToInt32(dataGridView1.CurrentRow.Cells["UserID"].Value));
-            frm.ShowDialog();
+            frm.Show();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -207,7 +211,7 @@ namespace DVLD.Persons
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int SelectedID = (int)dataGridView1.CurrentRow.Cells["UserID"].Value;
-            frmAddUser frm = new frmAddUser(SelectedID);
+            frmAddEditUser frm = new frmAddEditUser(SelectedID);
             frm.ShowDialog();
 
             _RefrshForm();

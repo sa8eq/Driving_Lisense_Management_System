@@ -40,7 +40,7 @@
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCurrentUserID = new System.Windows.Forms.Label();
+            this.lblCurrentUserID = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -111,7 +111,7 @@
             // 
             this.currentUserInfoToolStripMenuItem.Image = global::DVLD.Properties.Resources.PersonDetails_321;
             this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
-            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.currentUserInfoToolStripMenuItem.Text = "Current User Info";
             this.currentUserInfoToolStripMenuItem.Click += new System.EventHandler(this.currentUserInfoToolStripMenuItem_Click);
             // 
@@ -119,20 +119,20 @@
             // 
             this.changePasswordToolStripMenuItem.Image = global::DVLD.Properties.Resources.Password_32;
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // signOutToolStripMenuItem
             // 
             this.signOutToolStripMenuItem.Image = global::DVLD.Properties.Resources.sign_out_32__2;
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
@@ -157,24 +157,25 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Current User ID:";
             // 
-            // txtCurrentUserID
+            // lblCurrentUserID
             // 
-            this.txtCurrentUserID.AutoSize = true;
-            this.txtCurrentUserID.Location = new System.Drawing.Point(939, 30);
-            this.txtCurrentUserID.Name = "txtCurrentUserID";
-            this.txtCurrentUserID.Size = new System.Drawing.Size(17, 13);
-            this.txtCurrentUserID.TabIndex = 7;
-            this.txtCurrentUserID.Text = "??";
+            this.lblCurrentUserID.AutoSize = true;
+            this.lblCurrentUserID.Location = new System.Drawing.Point(939, 30);
+            this.lblCurrentUserID.Name = "lblCurrentUserID";
+            this.lblCurrentUserID.Size = new System.Drawing.Size(17, 13);
+            this.lblCurrentUserID.TabIndex = 7;
+            this.lblCurrentUserID.Text = "??";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1002, 450);
-            this.Controls.Add(this.txtCurrentUserID);
+            this.Controls.Add(this.lblCurrentUserID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
@@ -201,7 +202,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label txtCurrentUserID;
+        private System.Windows.Forms.Label lblCurrentUserID;
     }
 }
 

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BussinesLayer;
+using DVLD.Classess;
 namespace DVLD
 {
     public partial class frmLogIn : Form
@@ -43,36 +44,56 @@ namespace DVLD
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (!this.ValidateChildren())
+            clsUser User = clsUser.FindUserByUserNameAndPassword(txtUsername.Text, txtPassword.Text);
+
+            if (User != null)
             {
-                return;
+                if(cbxRemmemberMe.Checked)
+                {
+                    clsGlobal.RememberUserNameAndPassword(txtUsername.Text.Trim(),txtPassword.Text.Trim());
+                }
+                else
+                {
+                    clsGlobal.RememberUserNameAndPassword("", "");
+                }
+             
+                if (!User.IsActive)
+                {
+                    MessageBox.Show("Your Account Is DeActivated. Please Contact Your Admin");
+                    return;
+                }
+
+                clsGlobal.CurrentUser = User;
+                this.Hide();
+                frmMain frm = new frmMain(this);
+                frm.ShowDialog();
+
             }
-            clsUser CurrentUser = clsUser.FindUser(txtUsername.Text, txtPassword.Text);
-            if (CurrentUser == null)
+            else
             {
                 MessageBox.Show("Invalid Username/Password");
                 return;
             }
-            if(CurrentUser.IsActive = false)
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmLogIn_Load(object sender, EventArgs e)
+        {
+            string Username = "", Password = "";
+            if(clsGlobal.GetStoredCredentials(ref Username, ref Password))
             {
-                MessageBox.Show("Your Account Is DeActivated. Please Contact Your Admin");
-                return;
-            }
-            if (cbxRemmemberMe.Checked)
-            {
-                txtUsername.Text = CurrentUser.Username.ToString();
-                txtPassword.Text = CurrentUser.Password.ToString();
+                txtUsername.Text = Username;
+                txtPassword.Text = Password;
+                cbxRemmemberMe.Checked = true;
             }
             else
             {
-                txtUsername.Text = "";
-                txtPassword.Text = "";
+                cbxRemmemberMe.Checked = false;
             }
-            
-            frmMain frm = new frmMain(CurrentUser);
-            frm.ShowDialog();
-            
-
         }
     }
 }

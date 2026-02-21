@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Persons
 {
-    partial class frmAddUser
+    partial class frmAddEditUser
     {
         /// <summary>
         /// Required designer variable.
@@ -240,7 +240,7 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // frmAddUser
+            // frmAddEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -249,8 +249,8 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
-            this.Name = "frmAddUser";
-            this.Text = "frmAddUser";
+            this.Name = "frmAddEditUser";
+            this.Text = "frmAddEditUser";
             this.Load += new System.EventHandler(this.frmAddUser_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

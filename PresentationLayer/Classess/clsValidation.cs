@@ -15,6 +15,10 @@ namespace DVLD.Classess
             var regex = new Regex(pattern);
             return regex.IsMatch(Email);
         }
+        public static bool IsNumber(string Number)
+        {
+            return float.TryParse(Number, out float IsNumber);
+        }
 
 
         

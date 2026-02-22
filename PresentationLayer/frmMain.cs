@@ -1,4 +1,5 @@
 ﻿using BussinesLayer;
+using DVLD.Applications;
 using DVLD.Classess;
 using DVLD.Persons;
 using System;
@@ -65,6 +66,12 @@ namespace DVLD
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmChangePassword frm = new frmChangePassword(clsGlobal.CurrentUser.UserID);
+            frm.ShowDialog();
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageApplicationTypes frm = new frmManageApplicationTypes();
             frm.ShowDialog();
         }
     }

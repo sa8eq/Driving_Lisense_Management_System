@@ -2,6 +2,7 @@
 using DVLD.Applications;
 using DVLD.Classess;
 using DVLD.Persons;
+using DVLD.Tests.TestTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,6 +73,12 @@ namespace DVLD
         private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageApplicationTypes frm = new frmManageApplicationTypes();
+            frm.ShowDialog();
+        }
+
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageTestTypes frm = new frmManageTestTypes();
             frm.ShowDialog();
         }
     }

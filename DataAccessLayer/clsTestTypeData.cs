@@ -9,19 +9,20 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class clsApplicationTypesData
+    public class clsTestTypesData
     {
-        public static DataTable GetAllApplicationTypes()
+        public static DataTable GetAllTestTypes()
         {
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"select * from ApplicationTypes";
+            string query = @"select * from TestTypes";
             SqlCommand Command = new SqlCommand(query, Connection);
+
             try
             {
                 Connection.Open();
                 SqlDataReader Reader = Command.ExecuteReader();
-                if(Reader.HasRows)
+                if (Reader.HasRows)
                 {
                     dt.Load(Reader);
                     Reader.Close();
@@ -29,7 +30,7 @@ namespace DataAccessLayer
                     return dt;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -40,20 +41,21 @@ namespace DataAccessLayer
 
             return null;
         }
-        public static int AddNewApplicationType(string ApplicationTypeTitle, float ApplicationTypeFees)
+        public static int AddNewTestType(string Title, string Discription, float Fees)
         {
-            int ApplicationID = -1;
+            int TestID = -1;
 
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"INSERT INTO ApplicationTypes (ApplicationTypeTitle, ApplicationTypeFees)
-                     VALUES (@ApplicationTypeTitle, @ApplicationTypeFees);
+            string query = @"INSERT INTO TestTypes (Title, Discription, Fees)
+                     VALUES (@Title, @Discription ,@Fees);
                      SELECT SCOPE_IDENTITY();";
 
             SqlCommand Command = new SqlCommand(query, Connection);
 
-            Command.Parameters.AddWithValue("@ApplicationTypeTitle", ApplicationTypeTitle);
-            Command.Parameters.AddWithValue("@ApplicationTypeFees", ApplicationTypeFees);
+            Command.Parameters.AddWithValue("@Title", Title);
+            Command.Parameters.AddWithValue("@Discription", Discription);
+            Command.Parameters.AddWithValue("@Fees", Fees);
 
             try
             {
@@ -63,40 +65,42 @@ namespace DataAccessLayer
 
                 if (result != null && int.TryParse(result.ToString(), out int insertedID))
                 {
-                    ApplicationID = insertedID;
+                    TestID = insertedID;
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message); 
+                throw new Exception(ex.Message);
             }
             finally
             {
                 Connection.Close();
             }
 
-            return ApplicationID;
+            return TestID;
         }
-        public static bool UpdateApplicationType(int ApplicationTypeID, string ApplicationTypeTitle, float ApplicationTypeFees)
+        public static bool UpdateTestType(int TestID, string Title, string Discription ,float Fees)
         {
             int affectedrows = 0;
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"UPDATE ApplicationTypes 
-                             SET ApplicationTypeTitle = @ApplicationTypeTitle, 
-                                 ApplicationTypeFees = @ApplicationTypeFees 
-                             WHERE ApplicationTypeID = @ApplicationTypeID";
+            string query = @"UPDATE TestTypes 
+                             SET Title = @Title, 
+                                 Discription = @Discription,
+                                 Fees = @Fees 
+                             WHERE TestID = @TestID";
             SqlCommand Command = new SqlCommand(query, Connection);
 
-            Command.Parameters.AddWithValue("@ApplicationTypeTitle", ApplicationTypeTitle);
-            Command.Parameters.AddWithValue("@ApplicationTypeFees", ApplicationTypeFees);
-            Command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            Command.Parameters.AddWithValue("@Title", Title);
+            Command.Parameters.AddWithValue("@Discription", Discription);
+            Command.Parameters.AddWithValue("@Fees", Fees);
+            Command.Parameters.AddWithValue("@TestID", TestID);
             try
             {
                 Connection.Open();
                 affectedrows = Command.ExecuteNonQuery();
                 Connection.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -106,21 +110,22 @@ namespace DataAccessLayer
             }
             return (affectedrows > 0);
         }
-        public static bool GetApplicationByID(int ApplicationTypeID, ref string ApplicationTypeTitle, ref float ApplicationTypeFees)
+        public static bool GetTestByID(int TestID, ref string Title, ref string Discription,ref float Fees)
         {
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"select * from ApplicationTypes where ApplicationTypeID = @ApplicationTypeID";
+            string query = @"select * from TestTypes where TestID = @TestID";
 
             SqlCommand Command = new SqlCommand(query, Connection);
-            Command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            Command.Parameters.AddWithValue("@TestID", TestID);
             try
             {
                 Connection.Open();
                 SqlDataReader Reader = Command.ExecuteReader();
                 if (Reader.Read())
                 {
-                    ApplicationTypeTitle = (string)Reader["ApplicationTypeTitle"];
-                    ApplicationTypeFees = Convert.ToSingle(Reader["ApplicationTypeFees"]);
+                    Title = (string)Reader["Title"];
+                    Discription = (string)Reader["Discription"];
+                    Fees = Convert.ToSingle(Reader["Fees"]);
                     Reader.Close();
                     return true;
                 }

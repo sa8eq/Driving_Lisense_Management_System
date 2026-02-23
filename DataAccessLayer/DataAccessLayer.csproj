@@ -46,6 +46,7 @@
     <Compile Include="clsCountriesData.cs" />
     <Compile Include="clsDataAccessSettings.cs" />
     <Compile Include="clsPersonData.cs" />
+    <Compile Include="clsTestTypeData.cs" />
     <Compile Include="clsUserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\Windows\Forms.cs" />

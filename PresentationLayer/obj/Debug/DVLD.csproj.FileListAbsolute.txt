@@ -27,3 +27,5 @@ C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\Pres
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.exe
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.pdb
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Applications.frmEditApplicationType.resources
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Tests.TestTypes.frmManageTestTypes.resources
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Tests.TestTypes.frmEditTestType.resources

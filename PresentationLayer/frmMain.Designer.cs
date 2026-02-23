@@ -88,26 +88,26 @@
             this.drivingLicensesServicesToolStripMenuItem.Image = global::DVLD.Properties.Resources.Driver_License_48;
             this.drivingLicensesServicesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.drivingLicensesServicesToolStripMenuItem.Name = "drivingLicensesServicesToolStripMenuItem";
-            this.drivingLicensesServicesToolStripMenuItem.Size = new System.Drawing.Size(262, 70);
+            this.drivingLicensesServicesToolStripMenuItem.Size = new System.Drawing.Size(263, 70);
             this.drivingLicensesServicesToolStripMenuItem.Text = "Driving Licenses Services";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(259, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(260, 6);
             // 
             // manageApplicationsToolStripMenuItem
             // 
             this.manageApplicationsToolStripMenuItem.Image = global::DVLD.Properties.Resources.Manage_Applications_64;
             this.manageApplicationsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.manageApplicationsToolStripMenuItem.Name = "manageApplicationsToolStripMenuItem";
-            this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(262, 70);
+            this.manageApplicationsToolStripMenuItem.Size = new System.Drawing.Size(263, 70);
             this.manageApplicationsToolStripMenuItem.Text = "Manage Applications";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(259, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(260, 6);
             // 
             // detainLicensesToolStripMenuItem
             // 
@@ -133,6 +133,7 @@
             this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
             this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(263, 70);
             this.manageTestTypesToolStripMenuItem.Text = "Manage Test Types";
+            this.manageTestTypesToolStripMenuItem.Click += new System.EventHandler(this.manageTestTypesToolStripMenuItem_Click);
             // 
             // peopleToolStripMenuItem
             // 
@@ -178,7 +179,7 @@
             this.currentUserInfoToolStripMenuItem.Image = global::DVLD.Properties.Resources.PersonDetails_321;
             this.currentUserInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
-            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
             this.currentUserInfoToolStripMenuItem.Text = "Current User Info";
             this.currentUserInfoToolStripMenuItem.Click += new System.EventHandler(this.currentUserInfoToolStripMenuItem_Click);
             // 
@@ -187,21 +188,21 @@
             this.changePasswordToolStripMenuItem.Image = global::DVLD.Properties.Resources.Password_32;
             this.changePasswordToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(181, 6);
             // 
             // signOutToolStripMenuItem
             // 
             this.signOutToolStripMenuItem.Image = global::DVLD.Properties.Resources.sign_out_32__2;
             this.signOutToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
-            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.signOutToolStripMenuItem.Size = new System.Drawing.Size(184, 38);
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 

@@ -95,6 +95,7 @@ namespace DVLD
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
             _RefreshPersonsList();
+            this.WindowState = FormWindowState.Maximized;
         }
         private void btnAddNew_Click(object sender, EventArgs e)
         {

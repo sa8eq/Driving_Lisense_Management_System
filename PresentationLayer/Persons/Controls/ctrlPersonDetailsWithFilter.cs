@@ -61,12 +61,18 @@ namespace DVLD
         {
             get { return ctrlPersonDetails1.SelectedPersonInfo; }
         }
+        public void LoadPersonInfoByNationalNumber(int NationalNumber)
+        {
+            cmbFilter.SelectedIndex = 2;
+            txtFilter.Text = NationalNumber.ToString();
+
+        }
         public void LoadPersonInfo(int PersonID)
         {
             cmbFilter.SelectedIndex = 1;
             txtFilter.Text = PersonID.ToString();
 
-            ctrlPersonDetails1.LoadPersonInfo(PersonID);
+            ctrlPersonDetails1.LoadPersonInfo(txtFilter.Text);
 
          
             if (OnPersonSelected != null)

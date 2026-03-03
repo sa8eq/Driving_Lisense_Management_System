@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.ctrlPersonDetails1 = new DVLD.ctrlPersonDetails();
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.cmbFilter = new System.Windows.Forms.ComboBox();
             this.lblFilterBy = new System.Windows.Forms.Label();
@@ -37,16 +36,10 @@
             this.btnFind = new System.Windows.Forms.Button();
             this.gbFilter = new System.Windows.Forms.GroupBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ctrlPersonDetails1 = new DVLD.ctrlPersonDetails();
             this.gbFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ctrlPersonDetails1
-            // 
-            this.ctrlPersonDetails1.Location = new System.Drawing.Point(0, 103);
-            this.ctrlPersonDetails1.Name = "ctrlPersonDetails1";
-            this.ctrlPersonDetails1.Size = new System.Drawing.Size(892, 379);
-            this.ctrlPersonDetails1.TabIndex = 0;
             // 
             // txtFilter
             // 
@@ -65,15 +58,7 @@
             this.cmbFilter.Items.AddRange(new object[] {
             "None",
             "PersonID",
-            "NationalNumber",
-            "FirstName",
-            "SecondName",
-            "ThirdName",
-            "LastName",
-            "NationalityID",
-            "Gender",
-            "Phone",
-            "Email"});
+            "NationalNumber"});
             this.cmbFilter.Location = new System.Drawing.Point(117, 25);
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.Size = new System.Drawing.Size(193, 21);
@@ -129,6 +114,13 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // ctrlPersonDetails1
+            // 
+            this.ctrlPersonDetails1.Location = new System.Drawing.Point(0, 103);
+            this.ctrlPersonDetails1.Name = "ctrlPersonDetails1";
+            this.ctrlPersonDetails1.Size = new System.Drawing.Size(892, 379);
+            this.ctrlPersonDetails1.TabIndex = 0;
             // 
             // ctrlPersonDetailsWithFilter
             // 

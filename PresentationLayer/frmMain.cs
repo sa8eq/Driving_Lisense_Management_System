@@ -1,5 +1,6 @@
 ﻿using BussinesLayer;
 using DVLD.Applications;
+using DVLD.Applications.Application;
 using DVLD.Classess;
 using DVLD.Persons;
 using DVLD.Tests.TestTypes;
@@ -79,6 +80,18 @@ namespace DVLD
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageTestTypes frm = new frmManageTestTypes();
+            frm.ShowDialog();
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewLocalLicenseApplication frm = new frmNewLocalLicenseApplication();
+            frm.ShowDialog();
+        }
+
+        private void localDrivingLicenseApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageLocalDrivingLicensesApplications frm = new frmManageLocalDrivingLicensesApplications();
             frm.ShowDialog();
         }
     }

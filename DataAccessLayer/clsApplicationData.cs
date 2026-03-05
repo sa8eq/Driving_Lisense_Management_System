@@ -28,14 +28,28 @@ namespace DataAccessLayer
                 SqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
+
+
                     isFound = true;
                     ApplicantPersonID = (int)reader["ApplicantPersonID"];
                     ApplicationDate = (DateTime)reader["ApplicationDate"];
                     ApplicationTypeID = (int)reader["ApplicationTypeID"];
-                    ApplicationStatus = (byte)reader["ApplicationStatus"];
+
+                    // التعديل هنا: استخدم Convert بدلاً من الـ Casting المباشر
+                    ApplicationStatus = Convert.ToByte(reader["ApplicationStatus"]);
+
                     LastStatusDate = (DateTime)reader["LastStatusDate"];
                     PaidFees = Convert.ToSingle(reader["PaidFees"]);
                     CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                    //isFound = true;
+                    //ApplicantPersonID = (int)reader["ApplicantPersonID"];
+                    //ApplicationDate = (DateTime)reader["ApplicationDate"];
+                    //ApplicationTypeID = (int)reader["ApplicationTypeID"];
+                    //ApplicationStatus = (byte)reader["ApplicationStatus"];
+                    //LastStatusDate = (DateTime)reader["LastStatusDate"];
+                    //PaidFees = Convert.ToSingle(reader["PaidFees"]);
+                    //CreatedByUserID = (int)reader["CreatedByUserID"];
                 }
                 else
                 {
@@ -252,14 +266,13 @@ namespace DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT ActiveApplicationID=Applications.ApplicationID  
-                            From
-                            Applications INNER JOIN
-                            LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
-                            WHERE ApplicantPersonID = @ApplicantPersonID 
-                            and ApplicationTypeID=@ApplicationTypeID 
-							and LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
-                            and ApplicationStatus=1";
+            string query = @"SELECT Applications.ApplicationID
+                    FROM Applications INNER JOIN
+                    LocalDrivingLicenseApplications ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID
+                    WHERE ApplicantPersonID = @ApplicantPersonID
+                    AND ApplicationTypeID = @ApplicationTypeID
+                    AND LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID
+                    AND ApplicationStatus = 1";
 
             SqlCommand command = new SqlCommand(query, connection);
 

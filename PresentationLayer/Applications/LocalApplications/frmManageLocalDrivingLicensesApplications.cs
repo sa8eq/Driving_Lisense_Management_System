@@ -1,4 +1,5 @@
 ﻿using BussinesLayer;
+using DVLD.Applications.LocalApplications;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -127,7 +128,8 @@ namespace DVLD.Applications.Application
         private void btnAddNewApplication_Click(object sender, EventArgs e)
         {
 
-            frmNewLocalLicenseApplication frm = new frmNewLocalLicenseApplication();
+
+            frmAddUpdateLocalDrivingLicesnseApplication frm = new frmAddUpdateLocalDrivingLicesnseApplication();
 
             frm.ShowDialog();
             _RefreshPersonsList();
@@ -138,6 +140,39 @@ namespace DVLD.Applications.Application
             frmTestAppointments frm = new frmTestAppointments();
 
             frm.ShowDialog();
+            _RefreshPersonsList();
+        }
+
+        private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            frmLocalDrivingLicenseApplication frm = new frmLocalDrivingLicenseApplication(ID);
+            frm.ShowDialog();
+            _RefreshPersonsList();
+        }
+
+        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure do want to delete this application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            clsLocalDrivingLicenseApplication ApplicationToDelete = clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID(ID);
+
+            if(ApplicationToDelete!=null)
+            {
+                if(ApplicationToDelete.Delete())
+                {
+                    MessageBox.Show("Application Deleted Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Deleting Application Failed");
+                }
+            }
+
+
+
             _RefreshPersonsList();
         }
     }

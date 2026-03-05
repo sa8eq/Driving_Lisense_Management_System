@@ -43,6 +43,20 @@ namespace BusinessLayer
             else
                 return null;
         }
+        public static clsLicenseClass Find(string ClassName)
+        {
+            int LicenseClassID = -1; string ClassDescription = "";
+            byte MinimumAllowedAge = 18; byte DefaultValidityLength = 10; float ClassFees = 0;
+
+            if (clsLicenseClassesData.GetLicenseClassInfoByClassName(ClassName, ref LicenseClassID, ref ClassDescription,
+                    ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees))
+
+                return new clsLicenseClass(LicenseClassID, ClassName, ClassDescription,
+                    MinimumAllowedAge, DefaultValidityLength, ClassFees);
+            else
+                return null;
+
+        }
 
         public static DataTable GetAllLicenseClasses()
         {

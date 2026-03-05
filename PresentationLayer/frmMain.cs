@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using DVLD.Applications;
 namespace DVLD
 {
     public partial class frmMain : Form
@@ -85,7 +85,7 @@ namespace DVLD
 
         private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmNewLocalLicenseApplication frm = new frmNewLocalLicenseApplication();
+            frmAddUpdateLocalDrivingLicesnseApplication frm = new frmAddUpdateLocalDrivingLicesnseApplication();
             frm.ShowDialog();
         }
 

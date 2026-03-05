@@ -3,10 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5D561ACA-DB68-4980-8EA4-B9C0DC207A51}|..\\DataAccessLayer\\DataAccessLayer.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\dataaccesslayer\\clslocaldrivinglicenseapplicationdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\applications\\localapplications\\frmmanagelocaldrivinglicensesapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:applications\\localapplications\\frmmanagelocaldrivinglicensesapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7DC204A-153D-44F5-86D9-F3B6629030FD}|..\\BussinesLayer\\BusinessLayer.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\bussineslayer\\clslocaldrivinglicenseapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\applications\\localapplications\\frmmanagelocaldrivinglicensesapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:applications\\localapplications\\frmmanagelocaldrivinglicensesapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -16,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -28,29 +30,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "clsLocalDrivingLicenseApplicationData.cs",
-              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\DataAccessLayer\\clsLocalDrivingLicenseApplicationData.cs",
-              "RelativeDocumentMoniker": "..\\DataAccessLayer\\clsLocalDrivingLicenseApplicationData.cs",
-              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\DataAccessLayer\\clsLocalDrivingLicenseApplicationData.cs",
-              "RelativeToolTip": "..\\DataAccessLayer\\clsLocalDrivingLicenseApplicationData.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAswKgAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "frmManageLocalDrivingLicensesApplications.cs",
+              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs",
+              "RelativeDocumentMoniker": "Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs",
+              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs",
+              "RelativeToolTip": "Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs",
+              "ViewState": "AgIAAJEAAAAAAAAAAAASwKkAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-28T22:21:00.72Z",
+              "WhenOpened": "2026-03-05T04:41:06.724Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "clsLocalDrivingLicenseApplication.cs",
-              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\BussinesLayer\\clsLocalDrivingLicenseApplication.cs",
-              "RelativeDocumentMoniker": "..\\BussinesLayer\\clsLocalDrivingLicenseApplication.cs",
-              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\BussinesLayer\\clsLocalDrivingLicenseApplication.cs",
-              "RelativeToolTip": "..\\BussinesLayer\\clsLocalDrivingLicenseApplication.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAOAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "frmManageLocalDrivingLicensesApplications.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs",
+              "RelativeDocumentMoniker": "Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs",
+              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs [Design]",
+              "RelativeToolTip": "Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-28T22:20:55.366Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-05T04:40:59.053Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

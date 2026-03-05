@@ -56,7 +56,6 @@
             this.cmbFilter.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFilter.FormattingEnabled = true;
             this.cmbFilter.Items.AddRange(new object[] {
-            "None",
             "PersonID",
             "NationalNumber"});
             this.cmbFilter.Location = new System.Drawing.Point(117, 25);

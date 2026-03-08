@@ -42,8 +42,7 @@ namespace DVLD.Test_Appointment.Controls
 
             lblLDLAppID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();
             lblLicenseClass.Text = clsLicenseClass.Find(_LocalDrivingLicenseApplication.LicenseClassID).ClassName;
-            //lblTestsPassed.Text = _LocalDrivingLicenseApplication.GetPassedTestsCount().ToString() + "/3";
-            MessageBox.Show(_LocalDrivingLicenseApplication._ApplicationID.ToString());
+            lblTestsPassed.Text = _LocalDrivingLicenseApplication.GetPassedTestsCount().ToString() + "/3";
             ctrlApplicationBasicInfo1.LoadApplicationInfo(_LocalDrivingLicenseApplication._ApplicationID);
         }
         public void LoadApplicationInfoByLocalDrivingAppID(int LocalDrivingLicenseApplicationID)

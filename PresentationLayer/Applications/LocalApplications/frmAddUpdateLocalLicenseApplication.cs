@@ -41,13 +41,13 @@ namespace DVLD.Applications.Application
         {
             ctrlPersonDetailsWithFilter1.FilterEnabled = false;
             _LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID(_LocalDrivingLicenseApplicationID);
-
-            if(_LocalDrivingLicenseApplication==null)
+            if (_LocalDrivingLicenseApplication==null)
             {
                 MessageBox.Show("No Application With ID = " + _LocalDrivingLicenseApplicationID.ToString());
                 this.Close();
                 return;
             }
+
 
             ctrlPersonDetailsWithFilter1.LoadPersonInfo(_LocalDrivingLicenseApplication._ApplicantPersonID);
             lblApplicationID.Text = _LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();

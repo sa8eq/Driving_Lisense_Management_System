@@ -50,19 +50,10 @@ namespace DVLD.Applications.Controls
             lblDate.Text = clsFormat.DateToShort(_Application._ApplicationDate); //
             lblLastStatusDate.Text = clsFormat.DateToShort(_Application._LastStatusDate); //
 
-            // فحص الأجسام المرتبطة قبل الوصول لخصائصها لتجنب التوقف
             lblType.Text = (_Application._ApplicationTypeInfo != null) ? _Application._ApplicationTypeInfo._Title : "N/A"; //
             lblApplicant.Text = _Application.ApplicantFullName; //
             lblCreatedByUser.Text = (_Application._CreatedByUserInfo != null) ? _Application._CreatedByUserInfo.Username : "N/A"; //
-            //_ApplicationID = _Application._ApplicationID;
-            //lblApplicationID.Text = _Application._ApplicationID.ToString();
-            //lblStatus.Text = _Application.StatusText;
-            //lblType.Text = _Application._ApplicationTypeInfo._Title;
-            //lblFees.Text = _Application._PaidFees.ToString();
-            //lblApplicant.Text = _Application.ApplicantFullName;
-            //lblDate.Text = clsFormat.DateToShort(_Application._ApplicationDate);
-            //lblLastStatusDate.Text = clsFormat.DateToShort(_Application._LastStatusDate);
-            //lblCreatedByUser.Text = _Application._CreatedByUserInfo.Username;
+            
         }
 
         public void ResetApplicationInfo()
@@ -88,6 +79,12 @@ namespace DVLD.Applications.Controls
             //Refresh
             LoadApplicationInfo(_ApplicationID);
 
+        }
+
+        private void linkViewPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmShowPersonInfo frm = new frmShowPersonInfo(_Application._ApplicantPersonID);
+            frm.ShowDialog();
         }
     }
 

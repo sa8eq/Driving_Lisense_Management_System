@@ -193,7 +193,7 @@
             this.Controls.Add(this.ctrlApplicationBasicInfo1);
             this.Controls.Add(this.gbDrivingLicenseApplicationInfo);
             this.Name = "ctrlApplicationInfo";
-            this.Size = new System.Drawing.Size(968, 514);
+            this.Size = new System.Drawing.Size(755, 305);
             this.gbDrivingLicenseApplicationInfo.ResumeLayout(false);
             this.gbDrivingLicenseApplicationInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

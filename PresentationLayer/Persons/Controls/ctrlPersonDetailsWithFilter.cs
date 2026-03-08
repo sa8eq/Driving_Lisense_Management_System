@@ -63,16 +63,16 @@ namespace DVLD
         }
         public void LoadPersonInfoByNationalNumber(int NationalNumber)
         {
-            cmbFilter.SelectedIndex = 2;
+            cmbFilter.SelectedIndex = 1;
             txtFilter.Text = NationalNumber.ToString();
 
         }
         public void LoadPersonInfo(int PersonID)
         {
-            cmbFilter.SelectedIndex = 1;
+            cmbFilter.SelectedIndex = 0;
             txtFilter.Text = PersonID.ToString();
 
-            ctrlPersonDetails1.LoadPersonInfo(txtFilter.Text);
+            ctrlPersonDetails1.LoadPersonInfo(PersonID);
 
          
             if (OnPersonSelected != null)

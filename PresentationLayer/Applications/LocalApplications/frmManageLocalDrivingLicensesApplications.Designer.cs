@@ -119,6 +119,7 @@
             this.showPersonsLicenseHostoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(263, 366);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // showApplicationDetailsToolStripMenuItem
             // 
@@ -141,6 +142,7 @@
             this.editApplicationToolStripMenuItem.Name = "editApplicationToolStripMenuItem";
             this.editApplicationToolStripMenuItem.Size = new System.Drawing.Size(262, 38);
             this.editApplicationToolStripMenuItem.Text = "Edit Application";
+            this.editApplicationToolStripMenuItem.Click += new System.EventHandler(this.editApplicationToolStripMenuItem_Click);
             // 
             // deleteApplicationToolStripMenuItem
             // 
@@ -163,6 +165,7 @@
             this.cancelApplicationToolStripMenuItem.Name = "cancelApplicationToolStripMenuItem";
             this.cancelApplicationToolStripMenuItem.Size = new System.Drawing.Size(262, 38);
             this.cancelApplicationToolStripMenuItem.Text = "Cancel Application";
+            this.cancelApplicationToolStripMenuItem.Click += new System.EventHandler(this.cancelApplicationToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -197,6 +200,7 @@
             this.schedualeWrittenTestToolStripMenuItem.Name = "schedualeWrittenTestToolStripMenuItem";
             this.schedualeWrittenTestToolStripMenuItem.Size = new System.Drawing.Size(210, 38);
             this.schedualeWrittenTestToolStripMenuItem.Text = "Scheduale Written Test";
+            this.schedualeWrittenTestToolStripMenuItem.Click += new System.EventHandler(this.schedualeWrittenTestToolStripMenuItem_Click);
             // 
             // schedualeStreetTestToolStripMenuItem
             // 
@@ -205,6 +209,7 @@
             this.schedualeStreetTestToolStripMenuItem.Name = "schedualeStreetTestToolStripMenuItem";
             this.schedualeStreetTestToolStripMenuItem.Size = new System.Drawing.Size(210, 38);
             this.schedualeStreetTestToolStripMenuItem.Text = "Scheduale Street Test";
+            this.schedualeStreetTestToolStripMenuItem.Click += new System.EventHandler(this.schedualeStreetTestToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 

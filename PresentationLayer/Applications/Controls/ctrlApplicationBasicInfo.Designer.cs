@@ -109,6 +109,7 @@
             this.linkViewPersonInfo.TabIndex = 30;
             this.linkViewPersonInfo.TabStop = true;
             this.linkViewPersonInfo.Text = "View Person Info";
+            this.linkViewPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkViewPersonInfo_LinkClicked);
             // 
             // pictureBox12
             // 
@@ -352,8 +353,7 @@
             // 
             // ctrlApplicationBasicInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.Controls.Add(this.gbApplicationBasicInfo);
             this.Name = "ctrlApplicationBasicInfo";
             this.Size = new System.Drawing.Size(741, 196);

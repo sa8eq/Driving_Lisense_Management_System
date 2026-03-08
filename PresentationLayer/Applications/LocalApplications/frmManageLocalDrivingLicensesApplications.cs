@@ -31,7 +31,7 @@ namespace DVLD.Applications.Application
             dataGridView1.DataSource = dt;
             lblRecordsCounts.Text = dt.Rows.Count.ToString();
 
-            if(dt.Rows.Count>0)
+            if (dt.Rows.Count > 0)
             {
                 dataGridView1.Columns[0].HeaderText = "L.D.L.AppID";
                 dataGridView1.Columns[0].Width = 80;
@@ -47,7 +47,7 @@ namespace DVLD.Applications.Application
 
                 dataGridView1.Columns[4].HeaderText = "Application Date";
                 dataGridView1.Columns[4].Width = 170;
-                //dataGridView1.Columns[4].DefaultCellStyle.Format = "dd/mm/yyyy";
+                dataGridView1.Columns[4].DefaultCellStyle.Format = "dd/mm/yyyy";
 
                 dataGridView1.Columns[5].HeaderText = "Passed Tests";
                 dataGridView1.Columns[5].Width = 100;
@@ -63,7 +63,7 @@ namespace DVLD.Applications.Application
 
         private void cmFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch(cmFilter.Text)
+            switch (cmFilter.Text)
             {
                 case "None":
                     txtFilter.Visible = false;
@@ -114,7 +114,6 @@ namespace DVLD.Applications.Application
             string FilterValue = txtFilter.Text.Trim();
             if (FilterColumn == "Status")
             {
-                // إذا كتب المستخدم رقم، نحوله داخلياً للكلمة المقابلة له
                 if (FilterValue == "1") FilterValue = "New";
                 else if (FilterValue == "2") FilterValue = "Cancelled";
                 else if (FilterValue == "3") FilterValue = "Completed";
@@ -135,14 +134,6 @@ namespace DVLD.Applications.Application
             _RefreshPersonsList();
         }
 
-        private void visionTestToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmTestAppointments frm = new frmTestAppointments();
-
-            frm.ShowDialog();
-            _RefreshPersonsList();
-        }
-
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
@@ -150,18 +141,15 @@ namespace DVLD.Applications.Application
             frm.ShowDialog();
             _RefreshPersonsList();
         }
-
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure do want to delete this application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
-
             int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
             clsLocalDrivingLicenseApplication ApplicationToDelete = clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID(ID);
-
-            if(ApplicationToDelete!=null)
+            if (ApplicationToDelete != null)
             {
-                if(ApplicationToDelete.Delete())
+                if (ApplicationToDelete.Delete())
                 {
                     MessageBox.Show("Application Deleted Successfully");
                 }
@@ -170,9 +158,104 @@ namespace DVLD.Applications.Application
                     MessageBox.Show("Deleting Application Failed");
                 }
             }
+            _RefreshPersonsList();
+        }
+        private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            frmAddUpdateLocalDrivingLicesnseApplication frm = new frmAddUpdateLocalDrivingLicesnseApplication(ID);
+            frm.ShowDialog();
+            _RefreshPersonsList();
+        }
+        private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to cancel this application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+            int LocalDrivingLicenseApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplication LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID(LocalDrivingLicenseApplicationID);
+
+            if (LocalDrivingLicenseApplication != null)
+            {
+                if (LocalDrivingLicenseApplication.Cancel())
+                {
+                    MessageBox.Show("Application Has Been canceled Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Application Cancelling Failed");
+                }
+            }
+            else
+            {
+                MessageBox.Show("The Application is null");
+            }
+            _RefreshPersonsList();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+        
+            int LocalDrivingLicenseApplicationID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+
+            clsLocalDrivingLicenseApplication localDrivingLicenseApplication =
+                clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID
+                    (LocalDrivingLicenseApplicationID);
+
+            int TotalPassedTests = (int)dataGridView1.CurrentRow.Cells[5].Value;
+            //bool LicenseExist = localDrivingLicenseApplication.IsLicenseExist();
+
+            //issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalPassedTests == 3) && !LicenseExist;
+            //showLicenseToolStripMenuItem.Enabled = LicenseExist;
+            //editApplicationToolStripMenuItem.Enabled = !LicenseExist && (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.New);
+            //schadualeTestToolStripMenuItem.Enabled = !LicenseExist;
+            cancelApplicationToolStripMenuItem.Enabled = (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.New);
+            deleteApplicationToolStripMenuItem.Enabled = (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.New) || (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.Cancelled);
+
+            bool PassedVisionTest = clsLocalDrivingLicenseApplication.DoesPassTestType(localDrivingLicenseApplication.LocalDrivingLicenseApplicationID, (int)clsTestTypes.enTestType.VisionTest);
+            bool PassedWrittenTest = clsLocalDrivingLicenseApplication.DoesPassTestType(localDrivingLicenseApplication.LocalDrivingLicenseApplicationID, (int)clsTestTypes.enTestType.WrittenTest);
+            bool PassedStreetTest = clsLocalDrivingLicenseApplication.DoesPassTestType(localDrivingLicenseApplication.LocalDrivingLicenseApplicationID, (int)clsTestTypes.enTestType.StreetTest);
 
 
 
+            schadualeTestToolStripMenuItem.Enabled = (!PassedVisionTest || !PassedWrittenTest || !PassedStreetTest) && (localDrivingLicenseApplication._Status == clsApplication.enStatus.New);
+
+            if (schadualeTestToolStripMenuItem.Enabled)
+            {
+                visionTestToolStripMenuItem.Enabled = !PassedVisionTest;
+                schedualeWrittenTestToolStripMenuItem.Enabled = PassedVisionTest && !PassedWrittenTest;
+                schedualeStreetTestToolStripMenuItem.Enabled = PassedVisionTest && PassedWrittenTest && !PassedStreetTest;
+            }
+        }
+
+        private void visionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            frmTestAppointments frm = new frmTestAppointments(ID, clsTestTypes.enTestType.VisionTest);
+
+            frm.ShowDialog();
+            _RefreshPersonsList();
+        }
+
+        private void schedualeWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+
+            frmTestAppointments frm = new frmTestAppointments(ID, clsTestTypes.enTestType.WrittenTest);
+
+            frm.ShowDialog();
+            _RefreshPersonsList();
+        }
+
+        private void schedualeStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+
+            frmTestAppointments frm = new frmTestAppointments(ID, clsTestTypes.enTestType.StreetTest);
+
+            frm.ShowDialog();
             _RefreshPersonsList();
         }
     }

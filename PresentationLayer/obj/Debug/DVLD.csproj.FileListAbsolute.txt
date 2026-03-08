@@ -10,6 +10,7 @@ C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\Pres
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Applications.frmManageApplicationTypes.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Applications.Controls.ctrlApplicationBasicInfo.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Test_Appointment.Controls.ctrlApplicationInfo.resources
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Applications.LocalApplications.frmLocalDrivingLicenseApplication.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Applications.Application.frmManageLocalDrivingLicensesApplications.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Applications.Application.frmAddUpdateLocalDrivingLicesnseApplication.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.frmLogIn.resources
@@ -35,4 +36,3 @@ C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\Pres
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.csproj.Up2Date
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.exe
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.pdb
-C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Applications.LocalApplications.frmLocalDrivingLicenseApplication.resources

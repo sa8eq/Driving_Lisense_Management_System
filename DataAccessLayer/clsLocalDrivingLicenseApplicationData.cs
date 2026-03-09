@@ -385,6 +385,40 @@ namespace DataAccessLayer
 
         }
 
-        
+        static public bool IsLicenseExist(int ApplicationID)
+        {
+            bool isFound = false;
+
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string Query = "SELECT Found=1 FROM Licenses WHERE ApplicationID = @ApplicationID";
+
+            SqlCommand Command = new SqlCommand(Query, Connection);
+
+            Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                Connection.Open();
+                SqlDataReader Reader = Command.ExecuteReader();
+
+                isFound = Reader.HasRows;
+
+                Reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return isFound;
+        }
+
+
+
     }
 }

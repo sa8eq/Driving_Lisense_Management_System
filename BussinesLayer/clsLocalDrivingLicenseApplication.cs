@@ -192,6 +192,11 @@ namespace BussinesLayer
             return PassedTests;
         }
 
+        public bool IsLicenseExist()
+        {
+            return clsLocalDrivingLicenseApplicationData.IsLicenseExist(this._ApplicationID);
+        }
+
 
 
     }

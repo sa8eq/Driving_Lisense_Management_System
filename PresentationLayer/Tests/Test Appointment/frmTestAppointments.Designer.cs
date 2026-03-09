@@ -36,11 +36,11 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctrlApplicationInfo1 = new DVLD.Test_Appointment.Controls.ctrlApplicationInfo();
             this.btnAddNewAppointment = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ctrlApplicationInfo1 = new DVLD.Test_Appointment.Controls.ctrlApplicationInfo();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,7 +93,7 @@
             this.editToolStripMenuItem,
             this.takeTestToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 80);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 102);
             // 
             // editToolStripMenuItem
             // 
@@ -109,16 +109,9 @@
             this.takeTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Test_32;
             this.takeTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
-            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(138, 38);
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
             this.takeTestToolStripMenuItem.Text = "Take Test";
-            // 
-            // ctrlApplicationInfo1
-            // 
-            this.ctrlApplicationInfo1.AutoSize = true;
-            this.ctrlApplicationInfo1.Location = new System.Drawing.Point(6, 119);
-            this.ctrlApplicationInfo1.Name = "ctrlApplicationInfo1";
-            this.ctrlApplicationInfo1.Size = new System.Drawing.Size(755, 304);
-            this.ctrlApplicationInfo1.TabIndex = 9;
+            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 
             // btnAddNewAppointment
             // 
@@ -165,6 +158,14 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(755, 198);
             this.dataGridView1.TabIndex = 11;
+            // 
+            // ctrlApplicationInfo1
+            // 
+            this.ctrlApplicationInfo1.AutoSize = true;
+            this.ctrlApplicationInfo1.Location = new System.Drawing.Point(6, 119);
+            this.ctrlApplicationInfo1.Name = "ctrlApplicationInfo1";
+            this.ctrlApplicationInfo1.Size = new System.Drawing.Size(755, 304);
+            this.ctrlApplicationInfo1.TabIndex = 9;
             // 
             // frmTestAppointments
             // 

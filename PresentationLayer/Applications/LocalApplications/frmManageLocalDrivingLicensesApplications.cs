@@ -1,5 +1,6 @@
 ﻿using BussinesLayer;
 using DVLD.Applications.LocalApplications;
+using DVLD.Licenses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -205,12 +206,12 @@ namespace DVLD.Applications.Application
                     (LocalDrivingLicenseApplicationID);
 
             int TotalPassedTests = (int)dataGridView1.CurrentRow.Cells[5].Value;
-            //bool LicenseExist = localDrivingLicenseApplication.IsLicenseExist();
+            bool LicenseExist = localDrivingLicenseApplication.IsLicenseExist();
 
-            //issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalPassedTests == 3) && !LicenseExist;
-            //showLicenseToolStripMenuItem.Enabled = LicenseExist;
-            //editApplicationToolStripMenuItem.Enabled = !LicenseExist && (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.New);
-            //schadualeTestToolStripMenuItem.Enabled = !LicenseExist;
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalPassedTests == 3) && !LicenseExist;
+            showLicenseToolStripMenuItem.Enabled = LicenseExist;
+            editApplicationToolStripMenuItem.Enabled = !LicenseExist && (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.New);
+            schadualeTestToolStripMenuItem.Enabled = !LicenseExist;
             cancelApplicationToolStripMenuItem.Enabled = (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.New);
             deleteApplicationToolStripMenuItem.Enabled = (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.New) || (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.Cancelled);
 
@@ -257,6 +258,15 @@ namespace DVLD.Applications.Application
 
             frm.ShowDialog();
             _RefreshPersonsList();
+        }
+
+        private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            frmIssueDriverLicenseForTheFirstTime frm = new frmIssueDriverLicenseForTheFirstTime(ID);
+            frm.ShowDialog();
+            _RefreshPersonsList();
+
         }
     }
 }

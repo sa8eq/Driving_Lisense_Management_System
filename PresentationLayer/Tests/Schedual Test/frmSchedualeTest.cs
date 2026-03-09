@@ -36,10 +36,13 @@ namespace DVLD.Tests.Schedual_Test
 
             LocalDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID(_LocalDrivingLicneseApplicationID);
             _TestTypeInfo = clsTestTypes.GetTestByID((clsTestTypes.enTestType)_TestAppointment._TestTypeID);
-
+            label1.Text = "Rescheule " + label1.Text;
         }
         private void FillInfo()
         {
+
+
+
             lblDLAppID.Text = LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID.ToString();
             lblLicenseClass.Text = LocalDrivingLicenseApplication.LicenseClassInfo.ClassName;
             lblName.Text = LocalDrivingLicenseApplication.ApplicantFullName;
@@ -69,13 +72,23 @@ namespace DVLD.Tests.Schedual_Test
 
             groupBox1.Enabled = (TestTrials > 0);
 
-            if(groupBox1.Enabled)
+            if (groupBox1.Enabled)
             {
-                
+
                 RetakeApplication = clsApplication.FindBaseApplication(LocalDrivingLicenseApplication._ApplicationID);
                 lblRTestFees.Text = RetakeApplication._ApplicationTypeInfo._Fees.ToString();
                 lblTotalFees.Text = (RetakeApplication._ApplicationTypeInfo._Fees + _TestTypeInfo._Fees).ToString();
             }
+
+
+            if (_TestAppointment != null &&(_TestAppointment._IsLocked))
+            {
+                label11.Text = "The Applicant Already Attended This Appoitntment, The Appointment Is Lcoked";
+                btnSave.Enabled = false;
+                dateTimePicker1.Enabled = false;
+            }
+            
+
         }
         private void frmSchedualeTest_Load(object sender, EventArgs e)
         {

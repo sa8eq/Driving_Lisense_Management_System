@@ -1,5 +1,7 @@
-﻿using BussinesLayer;
+﻿using BusinessLayer;
+using BussinesLayer;
 using DVLD.Tests.Schedual_Test;
+using DVLD.Tests.TakeTest;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,8 +65,8 @@ namespace DVLD
 
             ctrlApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(_LocalDrivingLicenseApplicationID);
             dt = clsTestAppointment.GetAllTestAppointments();
-
-            dt.DefaultView.RowFilter = string.Format("[{0}] = {1}", "LocalDrivingLicenseApplicationID", _LocalDrivingLicenseApplicationID.ToString());
+            int TestTypeID = (int)_TestTypeInfo._ID;
+            dt.DefaultView.RowFilter = string.Format("[{0}] = {1}  AND {2} = {3}", "LocalDrivingLicenseApplicationID", _LocalDrivingLicenseApplicationID.ToString(), "TestTypeID", TestTypeID.ToString());
 
 
             dataGridView1.DataSource = dt;
@@ -75,7 +77,6 @@ namespace DVLD
 
                 dataGridView1.Columns[1].HeaderText = "Appointment Date";
                 dataGridView1.Columns[1].Width = 150;
-               // dataGridView1.Columns[1].DefaultCellStyle.Format = "dd/mm/yyyy";
 
 
                 dataGridView1.Columns[2].HeaderText = "Paid Fees";
@@ -85,6 +86,7 @@ namespace DVLD
                 dataGridView1.Columns[3].Width = 125;
 
                 dataGridView1.Columns[4].Visible = false;
+                dataGridView1.Columns[5].Visible = false;
             }
 
             lblRecords.Text = dt.Rows.Count.ToString();
@@ -110,6 +112,11 @@ namespace DVLD
                 MessageBox.Show("There is An Active Scheduled Appointment, You Can't Book Another One", "Previous Appointment", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if(clsLocalDrivingLicenseApplication.DoesPassTestType(_LocalDrivingLicenseApplicationID, (int)_TestTypeInfo._ID))
+            {
+                MessageBox.Show("A Previous Test Has Been Passed Successfully, You Can Only Book Failed Tests", "Previous Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             frmSchedualeTest frm = new frmSchedualeTest(_LocalDrivingLicenseApplicationID, _TestTypeInfo);
             frm.ShowDialog();
             _RefreshAppointmentsForm();
@@ -122,5 +129,15 @@ namespace DVLD
             frm.ShowDialog();
             _RefreshAppointmentsForm();
         }
+
+        private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int TestAppointmentID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            frmTakeTest frm = new frmTakeTest(TestAppointmentID, _LocalDrivingLicenseApplicationID);
+            frm.ShowDialog();
+            _RefreshAppointmentsForm();
+        }
+
+        
     }
 }

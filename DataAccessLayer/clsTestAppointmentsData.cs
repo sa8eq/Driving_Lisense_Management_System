@@ -15,7 +15,7 @@ namespace DataAccessLayer
         {
             DataTable dt = new DataTable();
             SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"select TestAppointmentID ,AppointmentDate, PaidFees, IsLocked, LocalDrivingLicenseApplicationID from TestAppointments";
+            string query = @"select TestAppointmentID ,AppointmentDate, PaidFees, IsLocked, LocalDrivingLicenseApplicationID, TestTypeID from TestAppointments";
             SqlCommand Command = new SqlCommand(query, Connection);
 
             try

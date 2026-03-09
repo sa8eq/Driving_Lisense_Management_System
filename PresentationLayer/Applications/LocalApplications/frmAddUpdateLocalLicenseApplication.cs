@@ -122,12 +122,12 @@ namespace DVLD.Applications.Application
                 cbLicensesClasses.Focus();
                 return;
             }
-            //if (clsLicense.IsLicenseExistByPersonID(ctrlPersonDetailsWithFilter1.PersonID, LicenseClassID))
-            //{
+            if (clsLicense.IsLicneseExistByPersonID(ctrlPersonDetailsWithFilter1.PersonID, LicenseClassID))
+            {
 
-            //    MessageBox.Show("Person already have a license with the same applied driving class, Choose diffrent driving class", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
+                MessageBox.Show("Person already have a license with the same applied driving class, Choose diffrent driving class", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             _LocalDrivingLicenseApplication._ApplicantPersonID = ctrlPersonDetailsWithFilter1.PersonID; ;
             _LocalDrivingLicenseApplication._ApplicationDate = DateTime.Now;

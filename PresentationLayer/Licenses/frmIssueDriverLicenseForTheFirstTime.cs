@@ -33,46 +33,44 @@ namespace DVLD.Licenses
 
         private void btnIssue_Click(object sender, EventArgs e)
         {
+
             clsLocalDrivingLicenseApplication LocalApp = clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID(_LocalDrivingLicneseApplicationID);
-            clsDriver Driver = new clsDriver();
-
-            Driver.PersonID = LocalApp._ApplicantPersonID;
-            Driver.CreatedByUserID = clsGlobal.CurrentUser.UserID;
-            Driver.CreatedDate = DateTime.Now;
-
-            if(Driver.Save())
+            clsDriver Driver = clsDriver.FindByPersonID(LocalApp._ApplicantPersonID);
+            if (Driver==null)
             {
-                clsLicense Licnese = new clsLicense();
-
-                Licnese.ApplicationID = LocalApp._ApplicationID;
-                Licnese.DriverID = Driver.DriverID;
-                Licnese.LicenseClass = LocalApp.LicenseClassID;
-                Licnese.IssueDate = DateTime.Now;
-                Licnese.ExpirationDate = DateTime.Now.AddYears(LocalApp.LicenseClassInfo.DefaultValidityLength);
-                Licnese.Notes = textBox1.Text;
-                Licnese.PaidFees = LocalApp.LicenseClassInfo.ClassFees;
-                Licnese.IsActive = true;
-                Licnese.IssueReason = clsLicense.enIssueReason.FirstTime;
-                Licnese.CreatedByUserID = clsGlobal.CurrentUser.UserID;
-                if(Licnese.Save())
+                Driver = new clsDriver();
+                Driver.PersonID = LocalApp._ApplicantPersonID;
+                Driver.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+                Driver.CreatedDate = DateTime.Now;
+                if (!Driver.Save())
                 {
-                    LocalApp._Status = clsApplication.enStatus.Completed;
-                    LocalApp.Save();
-                    MessageBox.Show("Congratulation, a New Driving License Has Been Issued, You Are Now A Legal Driver","Congratulation");
-                    btnIssue.Enabled = false;
-                    textBox1.Enabled = false;
+                    MessageBox.Show("Couldn't Generete a Driver row in database");
                 }
-                else
-                {
-                    MessageBox.Show("Sorry, Issuing New Driving Licnese Has Failed");
-                }
+            }
+            clsLicense Licnese = new clsLicense();
 
+            Licnese.ApplicationID = LocalApp._ApplicationID;
+            Licnese.DriverID = Driver.DriverID;
+            Licnese.LicenseClass = LocalApp.LicenseClassID;
+            Licnese.IssueDate = DateTime.Now;
+            Licnese.ExpirationDate = DateTime.Now.AddYears(LocalApp.LicenseClassInfo.DefaultValidityLength);
+            Licnese.Notes = textBox1.Text;
+            Licnese.PaidFees = LocalApp.LicenseClassInfo.ClassFees;
+            Licnese.IsActive = true;
+            Licnese.IssueReason = clsLicense.enIssueReason.FirstTime;
+            Licnese.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+            if (Licnese.Save())
+            {
+                LocalApp._Status = clsApplication.enStatus.Completed;
+                LocalApp.Save();
+                MessageBox.Show("Congratulation, a New Driving License Has Been Issued, You Are Now A Legal Driver", "Congratulation");
+                btnIssue.Enabled = false;
+                textBox1.Enabled = false;
             }
             else
             {
-                MessageBox.Show("Couldn't Generete a Driver row in database");
+                MessageBox.Show("Sorry, Issuing New Driving Licnese Has Failed");
             }
-
         }
     }
 }

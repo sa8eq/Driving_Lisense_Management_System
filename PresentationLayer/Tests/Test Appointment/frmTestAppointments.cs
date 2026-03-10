@@ -66,7 +66,7 @@ namespace DVLD
             ctrlApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(_LocalDrivingLicenseApplicationID);
             dt = clsTestAppointment.GetAllTestAppointments();
             int TestTypeID = (int)_TestTypeInfo._ID;
-            dt.DefaultView.RowFilter = string.Format("[{0}] = {1}  AND {2} = {3}", "LocalDrivingLicenseApplicationID", _LocalDrivingLicenseApplicationID.ToString(), "TestTypeID", TestTypeID.ToString());
+            
 
 
             dataGridView1.DataSource = dt;
@@ -84,11 +84,11 @@ namespace DVLD
 
                 dataGridView1.Columns[3].HeaderText = "Is Locked";
                 dataGridView1.Columns[3].Width = 125;
+                dt.DefaultView.RowFilter = string.Format("[{0}] = {1}  AND {2} = {3}", "LocalDrivingLicenseApplicationID", _LocalDrivingLicenseApplicationID.ToString(), "TestTypeID", TestTypeID.ToString());
 
                 dataGridView1.Columns[4].Visible = false;
                 dataGridView1.Columns[5].Visible = false;
             }
-
             lblRecords.Text = dt.Rows.Count.ToString();
 
             

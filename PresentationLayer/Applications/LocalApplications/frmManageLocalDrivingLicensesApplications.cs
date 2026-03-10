@@ -268,5 +268,19 @@ namespace DVLD.Applications.Application
             _RefreshPersonsList();
 
         }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(ID);
+            frm.ShowDialog();
+        }
+
+        private void showPersonsLicenseHostoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            frmPersonLicneseHistory frm = new frmPersonLicneseHistory(ID);
+            frm.ShowDialog();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using BussinesLayer;
+using DVLD.Licenses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,6 +73,12 @@ namespace DVLD.Test_Appointment.Controls
             }
 
             _FillLocalDrivingApplicationInfo();
+        }
+
+        private void linkShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(_LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID);
+            frm.ShowDialog();
         }
     }
 }

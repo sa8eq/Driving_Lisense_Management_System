@@ -1,11 +1,14 @@
 ﻿using DataAccessSettings;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace DataAccessLayer
 {
@@ -124,7 +127,8 @@ namespace DataAccessLayer
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM Drivers_View ORDER BY DriverID DESC";
+            string query = "SELECT \r\n    Drivers.DriverID, \r\n    Drivers.PersonID, \r\n    Persons.NationalNumber, \r\n    (Persons.FirstName + ' ' + Persons.SecondName + ' ' + Persons.ThirdName + ' ' + Persons.LastName) AS FullName, \r\n    Drivers.CreatedDate AS Date,\r\n    (SELECT COUNT(*) \r\n     FROM Licenses \r\n     WHERE Licenses.DriverID = Drivers.DriverID \r\n     AND Licenses.IsActive = 1) AS ActiveLicenses\r\nFROM Drivers\r\nINNER JOIN Persons ON Drivers.PersonID = Persons.PersonID\r\nORDER BY ActiveLicenses DESC;";
+
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -139,6 +143,39 @@ namespace DataAccessLayer
             finally { connection.Close(); }
 
             return dt;
+        }
+
+        public static bool IsDriverExistByPersonID(int PersonID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT Found=1 FROM Drivers WHERE PersonID = @PersonID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                isFound = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
         }
     }
 }

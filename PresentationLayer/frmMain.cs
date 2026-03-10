@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD.Applications;
+using DVLD.Drivers;
 namespace DVLD
 {
     public partial class frmMain : Form
@@ -93,6 +94,13 @@ namespace DVLD
         {
             frmManageLocalDrivingLicensesApplications frm = new frmManageLocalDrivingLicensesApplications();
             frm.ShowDialog();
+        }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageDrivers frm = new frmManageDrivers();
+            frm.ShowDialog();
+
         }
     }
 }

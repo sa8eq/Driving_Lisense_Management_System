@@ -94,6 +94,10 @@ namespace DVLD.Tests.TakeTest
                 _TestAppointmentInfo.Save();
                 lblTestID.Text = Test.TestID.ToString();
                 MessageBox.Show("Test Information Has Been Successfully Saved, And Test Appointment Is Locked");
+                btnSave.Enabled = false;
+                rbFail.Enabled = false;
+                rbPass.Enabled = false;
+                txtNotes.Enabled = false;
             }
             else
             {

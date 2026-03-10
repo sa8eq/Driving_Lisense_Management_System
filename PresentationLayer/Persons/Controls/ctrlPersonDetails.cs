@@ -109,9 +109,6 @@ namespace DVLD
 
         }
 
-        private void ctrlPersonDetails_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

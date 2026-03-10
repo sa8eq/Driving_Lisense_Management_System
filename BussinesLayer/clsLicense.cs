@@ -139,4 +139,28 @@ public class clsLicense
     {
         return clsLicensesData.IsLicenseExistByPersonID(PersonID, LicenseClassID);
     }
+
+    public static clsLicense FindLicneseByApplicationID(int ApplicationID)
+    {
+        int LicenseID = -1, DriverID = -1, LicenseClass = -1, CreatedByUserID = -1;
+        DateTime IssueDate = DateTime.Now, ExpirationDate = DateTime.Now;
+        string Notes = "";
+        float PaidFees = 0;
+        bool IsActive = true;
+        byte IssueReason = 1;
+
+        if (clsLicensesData.GetLicenseInfoByApplicationID(ApplicationID,
+            ref LicenseID, ref DriverID, ref LicenseClass,
+            ref IssueDate, ref ExpirationDate, ref Notes,
+            ref PaidFees, ref IsActive, ref IssueReason, ref CreatedByUserID))
+        {
+            return new clsLicense(LicenseID, ApplicationID, DriverID, LicenseClass,
+                                  IssueDate, ExpirationDate, Notes, PaidFees,
+                                  IsActive, IssueReason, CreatedByUserID);
+        }
+        else
+        {
+            return null;
+        }
+    }
 }

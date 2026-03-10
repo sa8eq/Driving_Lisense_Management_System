@@ -108,5 +108,10 @@ namespace BussinesLayer
         {
             return clsDriverData.DeleteDriver(DriverID);
         }
+
+        public static bool IsDriverExistByPersonID(int PersonID)
+        {
+            return clsDriverData.IsDriverExistByPersonID(PersonID);
+        }
     }
 }

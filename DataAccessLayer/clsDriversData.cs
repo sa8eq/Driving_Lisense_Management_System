@@ -72,6 +72,29 @@ namespace DataAccessLayer
             return isFound;
         }
 
+        public static DataTable GetAllDrivers()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "select * from Drivers_View";
+
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows) dt.Load(reader);
+                reader.Close();
+            }
+            catch (Exception) { }
+            finally { connection.Close(); }
+
+            return dt;
+        }
+
         public static int AddNewDriver(int PersonID, int CreatedByUserID, DateTime CreatedDate)
         {
             int DriverID = -1;
@@ -100,83 +123,43 @@ namespace DataAccessLayer
             return DriverID;
         }
 
-        public static bool DeleteDriver(int DriverID)
+        public static bool UpdateDriver(int DriverID, int PersonID, int CreatedByUserID)
         {
-            int RowsAffected = 0;
+
+            int rowsAffected = 0;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = "DELETE FROM Drivers WHERE DriverID = @DriverID";
+            string query = @"Update  Drivers  
+                            set PersonID = @PersonID,
+                                CreatedByUserID = @CreatedByUserID
+                                where DriverID = @DriverID";
+
             SqlCommand command = new SqlCommand(query, connection);
+
             command.Parameters.AddWithValue("@DriverID", DriverID);
-
-            try
-            {
-                connection.Open();
-                RowsAffected = command.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-            finally { connection.Close(); }
-
-            return (RowsAffected > 0);
-        }
-
-        public static DataTable GetAllDrivers()
-        {
-            DataTable dt = new DataTable();
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT \r\n    Drivers.DriverID, \r\n    Drivers.PersonID, \r\n    Persons.NationalNumber, \r\n    (Persons.FirstName + ' ' + Persons.SecondName + ' ' + Persons.ThirdName + ' ' + Persons.LastName) AS FullName, \r\n    Drivers.CreatedDate AS Date,\r\n    (SELECT COUNT(*) \r\n     FROM Licenses \r\n     WHERE Licenses.DriverID = Drivers.DriverID \r\n     AND Licenses.IsActive = 1) AS ActiveLicenses\r\nFROM Drivers\r\nINNER JOIN Persons ON Drivers.PersonID = Persons.PersonID\r\nORDER BY ActiveLicenses DESC;";
-
-
-            SqlCommand command = new SqlCommand(query, connection);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows) dt.Load(reader);
-                reader.Close();
-            }
-            catch (Exception) { }
-            finally { connection.Close(); }
-
-            return dt;
-        }
-
-        public static bool IsDriverExistByPersonID(int PersonID)
-        {
-            bool isFound = false;
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = "SELECT Found=1 FROM Drivers WHERE PersonID = @PersonID";
-
-            SqlCommand command = new SqlCommand(query, connection);
-
             command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
             try
             {
                 connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
+                rowsAffected = command.ExecuteNonQuery();
 
-                isFound = reader.HasRows;
-
-                reader.Close();
             }
             catch (Exception ex)
             {
-                isFound = false;
+                return false;
             }
+
             finally
             {
                 connection.Close();
             }
 
-            return isFound;
+            return (rowsAffected > 0);
         }
+
     }
+
 }
+
 

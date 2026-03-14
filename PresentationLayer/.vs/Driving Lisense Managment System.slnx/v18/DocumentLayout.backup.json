@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\licenses\\control\\ctrllicnesehistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:licenses\\control\\ctrllicnesehistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\licenses\\control\\ctrllicnesehistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:licenses\\control\\ctrllicnesehistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\applications\\localapplications\\frmmanagelocaldrivinglicensesapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:applications\\localapplications\\frmmanagelocaldrivinglicensesapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,26 +27,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ctrlLicneseHistory.cs",
-              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Licenses\\Control\\ctrlLicneseHistory.cs",
-              "RelativeDocumentMoniker": "Licenses\\Control\\ctrlLicneseHistory.cs",
-              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Licenses\\Control\\ctrlLicneseHistory.cs",
-              "RelativeToolTip": "Licenses\\Control\\ctrlLicneseHistory.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAwwCMAAAAAAAAAAAAAAA==",
+              "Title": "frmManageLocalDrivingLicensesApplications.cs",
+              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs",
+              "RelativeDocumentMoniker": "Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs",
+              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs",
+              "RelativeToolTip": "Applications\\LocalApplications\\frmManageLocalDrivingLicensesApplications.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAEwBQAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T03:41:06.624Z",
+              "WhenOpened": "2026-03-14T10:10:00.873Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ctrlLicneseHistory.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Licenses\\Control\\ctrlLicneseHistory.cs",
-              "RelativeDocumentMoniker": "Licenses\\Control\\ctrlLicneseHistory.cs",
-              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Licenses\\Control\\ctrlLicneseHistory.cs [Design]",
-              "RelativeToolTip": "Licenses\\Control\\ctrlLicneseHistory.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-10T03:26:28.123Z"
             }
           ]
         }

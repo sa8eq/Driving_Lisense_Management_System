@@ -13,9 +13,11 @@ namespace BussinesLayer
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
 
+
+        public clsPerson Person;
+
         public int DriverID { get; set; }
         public int PersonID { get; set; }
-        public clsPerson Person; 
         public int CreatedByUserID { get; set; }
         public clsUser CreatedByUser;
         public DateTime CreatedDate { get; set; }
@@ -34,9 +36,9 @@ namespace BussinesLayer
         {
             this.DriverID = DriverID;
             this.PersonID = PersonID;
-            Person = clsPerson.Find(PersonID);
+            this.Person = clsPerson.Find(PersonID);
             this.CreatedByUserID = CreatedByUserID;
-            CreatedByUser = clsUser.FindByUserID(CreatedByUserID);
+            this.CreatedByUser = clsUser.FindByUserID(CreatedByUserID);
             this.CreatedDate = CreatedDate;
 
             Mode = enMode.Update;
@@ -48,23 +50,9 @@ namespace BussinesLayer
             return (this.DriverID != -1);
         }
 
-        
-        public bool Save()
+        private bool _UpdateDriver()
         {
-            switch (Mode)
-            {
-                case enMode.AddNew:
-                    if (_AddNewDriver())
-                    {
-                        Mode = enMode.Update;
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-            }
-            return false;
+            return clsDriverData.UpdateDriver(this.DriverID, this.PersonID, this.CreatedByUserID);
         }
 
         public static clsDriver FindByDriverID(int DriverID)
@@ -104,14 +92,33 @@ namespace BussinesLayer
             return clsDriverData.GetAllDrivers();
         }
 
-        public static bool DeleteDriver(int DriverID)
+        public bool Save()
         {
-            return clsDriverData.DeleteDriver(DriverID);
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewDriver())
+                    {
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return _UpdateDriver();
+                    }
+            }
+            return false;
         }
 
-        public static bool IsDriverExistByPersonID(int PersonID)
+        public static DataTable GetLicenses(int DriverID)
         {
-            return clsDriverData.IsDriverExistByPersonID(PersonID);
+            return clsLicense.GetDriverLicenses(DriverID);
+        }
+
+        public static DataTable GetInternationalLicenses(int DriverID)
+        {
+            //return clsInternationalLicense.GetDriverInternationalLicenses(DriverID);
+            return null;
         }
     }
 }

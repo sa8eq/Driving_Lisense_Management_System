@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using BussinesLayer;
+using DVLD.Properties;
 using DVLD.Tests.Schedual_Test;
 using DVLD.Tests.TakeTest;
 using System;
@@ -18,86 +19,14 @@ namespace DVLD
     public partial class frmTestAppointments : Form
     {
         DataTable dt;
-        private int _LocalDrivingLicenseApplicationID = -1;
-        clsTestTypes _TestTypeInfo;
-        clsTestTypes.enTestType _TestType;
+        private int _LocalDrivingLicenseApplicationID;
+        clsTestTypes.enTestType _TestType = clsTestTypes.enTestType.VisionTest;
+
         public frmTestAppointments(int LocalDrivingLicenseApplicationID, clsTestTypes.enTestType TestType)
         {
             InitializeComponent();
             _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
-            _TestTypeInfo = clsTestTypes.GetTestByID(TestType);
-        }
-        private void CheckTestType()
-        {
-            switch (_TestTypeInfo._ID)
-            {
-                case clsTestTypes.enTestType.VisionTest:
-                    {
-                        label1.Text = "Vision " + label1.Text;
-                        pictureBox1.Image = DVLD.Properties.Resources.Vision_512;
-                        _TestTypeInfo = clsTestTypes.GetTestByID(clsTestTypes.enTestType.VisionTest);
-                    }
-                    break;
-                case clsTestTypes.enTestType.WrittenTest:
-                    {
-                        label1.Text = "Written " + label1.Text;
-                        pictureBox1.Image = DVLD.Properties.Resources.Written_Test_512;
-                        _TestTypeInfo = clsTestTypes.GetTestByID(clsTestTypes.enTestType.WrittenTest);
-                    }
-                    break;
-                case clsTestTypes.enTestType.StreetTest:
-                    {
-                        label1.Text = "Street " + label1.Text;
-                        pictureBox1.Image = DVLD.Properties.Resources.driving_test_512;
-                        _TestTypeInfo = clsTestTypes.GetTestByID(clsTestTypes.enTestType.StreetTest);
-                    }
-                    break;
-            }
-        }
-
-        private void _RefreshAppointmentsForm()
-        {
-            CheckTestType();
-
-            dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 9);
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
-
-
-            ctrlApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(_LocalDrivingLicenseApplicationID);
-            dt = clsTestAppointment.GetAllTestAppointments();
-            int TestTypeID = (int)_TestTypeInfo._ID;
-            
-
-
-            dataGridView1.DataSource = dt;
-            if (dataGridView1.Rows.Count>0)
-            {
-                dataGridView1.Columns[0].HeaderText = "Test Appointment ID";
-                dataGridView1.Columns[0].Width = 200;
-
-                dataGridView1.Columns[1].HeaderText = "Appointment Date";
-                dataGridView1.Columns[1].Width = 150;
-
-
-                dataGridView1.Columns[2].HeaderText = "Paid Fees";
-                dataGridView1.Columns[2].Width = 125;
-
-                dataGridView1.Columns[3].HeaderText = "Is Locked";
-                dataGridView1.Columns[3].Width = 125;
-                dt.DefaultView.RowFilter = string.Format("[{0}] = {1}  AND {2} = {3}", "LocalDrivingLicenseApplicationID", _LocalDrivingLicenseApplicationID.ToString(), "TestTypeID", TestTypeID.ToString());
-
-                dataGridView1.Columns[4].Visible = false;
-                dataGridView1.Columns[5].Visible = false;
-            }
-            lblRecords.Text = dt.Rows.Count.ToString();
-
-            
-
-        }
-
-        private void frmTestAppointments_Load(object sender, EventArgs e)
-        {
-            _RefreshAppointmentsForm();
+            _TestType = TestType;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -105,37 +34,114 @@ namespace DVLD
             this.Close();
         }
 
+        private void _LoadTestTypeImageAndTitle()
+        {
+            switch (_TestType)
+            {
+
+                case clsTestTypes.enTestType.VisionTest:
+                    {
+                        lblTitle.Text = "Vision Test Appointments";
+                        this.Text = lblTitle.Text;
+                        pbTestTypeImage.Image = Resources.Vision_512;
+                        break;
+                    }
+
+                case clsTestTypes.enTestType.WrittenTest:
+                    {
+                        lblTitle.Text = "Written Test Appointments";
+                        this.Text = lblTitle.Text;
+                        pbTestTypeImage.Image = Resources.Written_Test_512;
+                        break;
+                    }
+                case clsTestTypes.enTestType.StreetTest:
+                    {
+                        lblTitle.Text = "Street Test Appointments";
+                        this.Text = lblTitle.Text;
+                        pbTestTypeImage.Image = Resources.driving_test_512;
+                        break;
+                    }
+            }
+        }
+
+        private void frmTestAppointments_Load(object sender, EventArgs e)
+        {
+            _LoadTestTypeImageAndTitle();
+            dataGridView1.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+
+            ctrlApplicationInfo1.LoadApplicationInfoByLocalDrivingAppID(_LocalDrivingLicenseApplicationID);
+            dt = clsTestAppointment.GetApplicationTestAppointmentsPerTestType(_LocalDrivingLicenseApplicationID,_TestType);
+
+            dataGridView1.DataSource = dt;
+            lblRecords.Text = dt.Rows.Count.ToString();
+
+            if (dataGridView1.Rows.Count > 0)
+            {
+                dataGridView1.Columns[0].HeaderText = "Appointment ID";
+                dataGridView1.Columns[0].Width = 150;
+
+                dataGridView1.Columns[1].HeaderText = "Appointment Date";
+                dataGridView1.Columns[1].Width = 200;
+
+
+                dataGridView1.Columns[2].HeaderText = "Paid Fees";
+                dataGridView1.Columns[2].Width = 150;
+
+                dataGridView1.Columns[3].HeaderText = "Is Locked";
+                dataGridView1.Columns[3].Width = 100;
+            }   
+        }
+
         private void btnAddNewAppointment_Click(object sender, EventArgs e)
         {
-            if(clsLocalDrivingLicenseApplication.IsThereAnActiveScheduledTest(_LocalDrivingLicenseApplicationID, (int)_TestTypeInfo._ID))
+            clsLocalDrivingLicenseApplication LocalApp = clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID(_LocalDrivingLicenseApplicationID);
+
+
+            if(LocalApp.IsThereAnActiveScheduledTest((int)_TestType))
             {
                 MessageBox.Show("There is An Active Scheduled Appointment, You Can't Book Another One", "Previous Appointment", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if(clsLocalDrivingLicenseApplication.DoesPassTestType(_LocalDrivingLicenseApplicationID, (int)_TestTypeInfo._ID))
+
+            clsTest LastTest = LocalApp.GetLastTestPerTestType(_TestType);
+            if (LastTest == null)
             {
-                MessageBox.Show("A Previous Test Has Been Passed Successfully, You Can Only Book Failed Tests", "Previous Test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                frmSchedualeTest frm1 = new frmSchedualeTest(_LocalDrivingLicenseApplicationID, _TestType);
+                frm1.ShowDialog();
+                frmTestAppointments_Load(null, null);
                 return;
             }
-            frmSchedualeTest frm = new frmSchedualeTest(_LocalDrivingLicenseApplicationID, _TestTypeInfo);
-            frm.ShowDialog();
-            _RefreshAppointmentsForm();
+
+            if (LastTest.TestResult == true)
+            {
+                MessageBox.Show("This person already passed this test before, you can only retake faild test", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            frmSchedualeTest frm2 = new frmSchedualeTest
+                (LastTest.TestAppointmentInfo._LocalDrivingLicneseApplicationID, _TestType);
+            frm2.ShowDialog();
+            frmTestAppointments_Load(null, null);
+
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int TestAppointmentID = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            frmSchedualeTest frm = new frmSchedualeTest(TestAppointmentID);
+
+
+            frmSchedualeTest frm = new frmSchedualeTest(_LocalDrivingLicenseApplicationID, _TestType, TestAppointmentID);
             frm.ShowDialog();
-            _RefreshAppointmentsForm();
+            frmTestAppointments_Load(null, null);
         }
 
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int TestAppointmentID = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            frmTakeTest frm = new frmTakeTest(TestAppointmentID, _LocalDrivingLicenseApplicationID);
+            frmTakeTest frm = new frmTakeTest(TestAppointmentID, _TestType);
             frm.ShowDialog();
-            _RefreshAppointmentsForm();
+            frmTestAppointments_Load(null, null);
         }
 
         

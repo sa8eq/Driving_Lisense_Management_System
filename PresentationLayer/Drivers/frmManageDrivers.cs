@@ -1,4 +1,6 @@
 ﻿using BussinesLayer;
+using DVLD.Licenses;
+using DVLD.Persons;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,15 +21,10 @@ namespace DVLD.Drivers
             InitializeComponent();
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void frmManageDrivers_Load(object sender, EventArgs e)
         {
             dt = clsDriver.GetAllDrivers();
-            if(dt.Rows.Count>0)
+            if (dt.Rows.Count > 0)
             {
                 dataGridView1.DataSource = dt;
 
@@ -51,6 +48,11 @@ namespace DVLD.Drivers
             }
             cmbFilter.SelectedIndex = 0;
             lblRecords.Text = dataGridView1.Rows.Count.ToString();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,6 +113,20 @@ namespace DVLD.Drivers
                 dt.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, FilterValue);
             }
             lblRecords.Text = dataGridView1.Rows.Count.ToString();
+        }
+
+        private void showPersonInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value);
+            frmShowPersonInfo frm = new frmShowPersonInfo(PersonID);
+            frm.ShowDialog();
+        }
+
+        private void showPersonLicensToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[1].Value);
+            frmPersonLicneseHistory frm = new frmPersonLicneseHistory(PersonID);
+            frm.ShowDialog();
         }
     }
 }

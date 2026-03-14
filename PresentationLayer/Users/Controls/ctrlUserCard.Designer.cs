@@ -47,7 +47,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.lblUserID);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(14, 376);
+            this.groupBox1.Location = new System.Drawing.Point(19, 241);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(429, 92);
             this.groupBox1.TabIndex = 3;
@@ -125,10 +125,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.ctrlPersonDetails1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.ctrlPersonDetails1);
             this.Name = "ctrlUserCard";
-            this.Size = new System.Drawing.Size(900, 485);
+            this.Size = new System.Drawing.Size(900, 339);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

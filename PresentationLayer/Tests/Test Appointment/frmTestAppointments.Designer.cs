@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblRecords = new System.Windows.Forms.Label();
@@ -38,24 +38,24 @@
             this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAddNewAppointment = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbTestTypeImage = new System.Windows.Forms.PictureBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ctrlApplicationInfo1 = new DVLD.Test_Appointment.Controls.ctrlApplicationInfo();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestTypeImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label1.Location = new System.Drawing.Point(240, 87);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(291, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Test Appintment";
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.lblTitle.Location = new System.Drawing.Point(240, 87);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(291, 29);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Test Appintment";
             // 
             // label2
             // 
@@ -93,14 +93,14 @@
             this.editToolStripMenuItem,
             this.takeTestToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 102);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 80);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Image = global::DVLD.Properties.Resources.edit_321;
             this.editToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(138, 38);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -109,7 +109,7 @@
             this.takeTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Test_32;
             this.takeTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
-            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(138, 38);
             this.takeTestToolStripMenuItem.Text = "Take Test";
             this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 
@@ -136,16 +136,16 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // pictureBox1
+            // pbTestTypeImage
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.driving_test_512;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(766, 84);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pbTestTypeImage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbTestTypeImage.Image = global::DVLD.Properties.Resources.driving_test_512;
+            this.pbTestTypeImage.Location = new System.Drawing.Point(0, 0);
+            this.pbTestTypeImage.Name = "pbTestTypeImage";
+            this.pbTestTypeImage.Size = new System.Drawing.Size(766, 84);
+            this.pbTestTypeImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbTestTypeImage.TabIndex = 1;
+            this.pbTestTypeImage.TabStop = false;
             // 
             // dataGridView1
             // 
@@ -179,15 +179,15 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pbTestTypeImage);
+            this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "frmTestAppointments";
             this.Text = "TestAppointments";
             this.Load += new System.EventHandler(this.frmTestAppointments_Load);
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTestTypeImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -196,8 +196,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.PictureBox pbTestTypeImage;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnAddNewAppointment;
         private System.Windows.Forms.Button btnClose;

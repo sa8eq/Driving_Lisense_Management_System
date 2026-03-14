@@ -6,6 +6,10 @@ namespace BusinessLayer
 {
     public class clsLicenseClass
     {
+        public enum enMode { AddNew =0, Update = 1}
+        public enMode Mode = enMode.AddNew;
+
+
         public int LicenseClassID { get; set; }
         public string ClassName { get; set; }
         public string ClassDescription { get; set; }
@@ -21,8 +25,8 @@ namespace BusinessLayer
             this.MinimumAllowedAge = 18;
             this.DefaultValidityLength = 10;
             this.ClassFees = 0;
+            Mode = enMode.AddNew;
         }
-
         private clsLicenseClass(int ID, string Name, string Description, byte MinAge, byte Validity, float Fees)
         {
             this.LicenseClassID = ID;
@@ -31,6 +35,20 @@ namespace BusinessLayer
             this.MinimumAllowedAge = MinAge;
             this.DefaultValidityLength = Validity;
             this.ClassFees = Fees;
+            Mode = enMode.Update;
+        }
+
+        private bool _AddNewLicenseClass()
+        {
+            this.LicenseClassID = clsLicenseClassesData.AddNewLicenseClass(this.ClassName, this.ClassDescription,
+                this.MinimumAllowedAge, this.DefaultValidityLength, this.ClassFees);
+            return (this.LicenseClassID != -1);
+        }
+        private bool _UpdateLicenseClass()
+        {
+
+            return clsLicenseClassesData.UpdateLicenseClass(this.LicenseClassID, this.ClassName, this.ClassDescription,
+                this.MinimumAllowedAge, this.DefaultValidityLength, this.ClassFees);
         }
 
         public static clsLicenseClass Find(int LicenseClassID)
@@ -61,6 +79,31 @@ namespace BusinessLayer
         public static DataTable GetAllLicenseClasses()
         {
             return clsLicenseClassesData.GetAllLicensesClasses();
+        }
+
+        public bool Save()
+        {
+            switch (Mode)
+            {
+                case enMode.AddNew:
+                    if (_AddNewLicenseClass())
+                    {
+
+                        Mode = enMode.Update;
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+                case enMode.Update:
+
+                    return _UpdateLicenseClass();
+
+            }
+
+            return false;
         }
     }
 }

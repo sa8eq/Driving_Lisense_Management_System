@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BussinesLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,32 +13,138 @@ namespace DVLD.Licenses.Control
 {
     public partial class ctrlLicneseHistory : UserControl
     {
-        private DataTable dt;
-        
+        private int _DriverID;
+        private clsDriver _Driver;
+        private DataTable _dtDriverLocalLicensesHistory;
+        private DataTable _dtDriverInternationalLicensesHistory;
+
         public ctrlLicneseHistory()
         {
             InitializeComponent();
-            
+
         }
 
-        public void LoadDataWithDriverID(int DriverID)
+        private void _LoadLocalLicenseInfo()
         {
-            dt = clsLicense.GetAllLicenses();
-            if (dt.Rows.Count > 0)
-            {
-                dataGridView1.DataSource = dt;
-                dt.DefaultView.RowFilter = string.Format("DriverID = {0}", DriverID);
-                dataGridView1.Columns[2].Visible = false;
-                dataGridView1.Columns[6].Visible = false;
-                dataGridView1.Columns[7].Visible = false;
-                dataGridView1.Columns[9].Visible = false;
-                dataGridView1.Columns[10].Visible = false;
 
-                dataGridView1.Columns[4].Width = 140;
-                dataGridView1.Columns[5].Width = 140;
+            _dtDriverLocalLicensesHistory = clsDriver.GetLicenses(_DriverID);
+
+
+            dataGridView1.DataSource = _dtDriverLocalLicensesHistory;
+            lblRecords.Text = dataGridView1.Rows.Count.ToString();
+
+            if (dataGridView1.Rows.Count > 0)
+            {
+                dataGridView1.Columns[0].HeaderText = "Lic.ID";
+                dataGridView1.Columns[0].Width = 110;
+
+                dataGridView1.Columns[1].HeaderText = "App.ID";
+                dataGridView1.Columns[1].Width = 110;
+
+                dataGridView1.Columns[2].HeaderText = "Class Name";
+                dataGridView1.Columns[2].Width = 270;
+
+                dataGridView1.Columns[3].HeaderText = "Issue Date";
+                dataGridView1.Columns[3].Width = 170;
+                
+                dataGridView1.Columns[4].HeaderText = "Expiration Date";
+                dataGridView1.Columns[4].Width = 170;
+                
+                dataGridView1.Columns[5].HeaderText = "Is Active";
+                dataGridView1.Columns[5].Width = 110;
 
             }
-            lblRecords.Text = dataGridView1.Rows.Count.ToString();
         }
+        private void _LoadInternationalLicenseInfo()
+        {
+            _dtDriverInternationalLicensesHistory = clsDriver.GetInternationalLicenses(_DriverID);
+
+
+            dataGridView2.DataSource = _dtDriverInternationalLicensesHistory;
+            lblinterRecords.Text = dataGridView2.Rows.Count.ToString();
+
+            if (dataGridView2.Rows.Count > 0)
+            {
+                dataGridView2.Columns[0].HeaderText = "Int.License ID";
+                dataGridView2.Columns[0].Width = 160;
+
+                dataGridView2.Columns[1].HeaderText = "Application ID";
+                dataGridView2.Columns[1].Width = 130;
+
+                dataGridView2.Columns[2].HeaderText = "L.License ID";
+                dataGridView2.Columns[2].Width = 130;
+
+                dataGridView2.Columns[3].HeaderText = "Issue Date";
+                dataGridView2.Columns[3].Width = 180;
+
+                dataGridView2.Columns[4].HeaderText = "Expiration Date";
+                dataGridView2.Columns[4].Width = 180;
+
+                dataGridView2.Columns[5].HeaderText = "Is Active";
+                dataGridView2.Columns[5].Width = 120;
+            }
+        }
+
+        public void LoadInfo(int DriverID)
+        {
+            _DriverID = DriverID;
+            _Driver = clsDriver.FindByDriverID(_DriverID);
+
+            if (_Driver == null)
+            {
+                MessageBox.Show("There Is Driver With This ID","No Driver");
+                return;
+            }
+
+            _LoadLocalLicenseInfo();
+            _LoadInternationalLicenseInfo();
+
+        }
+
+        public void LoadInfoByPersonID(int PersonID)
+        {
+
+            _Driver = clsDriver.FindByPersonID(PersonID);
+            
+
+            if (_Driver == null)
+            {
+                MessageBox.Show("There is no driver linked with this person ID", "No Driver");
+                return;
+            }
+            _DriverID = _Driver.DriverID;
+            _LoadLocalLicenseInfo();
+            _LoadInternationalLicenseInfo();
+        }
+
+        //private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    //int LicenseID = (int)dgvLocalLicensesHistory.CurrentRow.Cells[0].Value;
+        //    //DriverLicense.frmShowLicenseInfo frm = new DriverLicense.frmShowLicenseInfo(LicenseID);
+        //    //frm.ShowDialog();
+
+        //}
+
+        public void Clear()
+        {
+            _dtDriverLocalLicensesHistory.Clear();
+            _dtDriverInternationalLicensesHistory.Clear();
+
+        }
+
+        private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LicenseID = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            frmShowDriverLicenseInfo frm = new frmShowDriverLicenseInfo(LicenseID);
+            frm.ShowDialog();
+        }
+
+        //private void InternationalLicenseHistorytoolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    int InternationalLicenseID = (int)dgvInternationalLicensesHistory.CurrentRow.Cells[0].Value;
+        //    frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo(InternationalLicenseID);
+        //    frm.ShowDialog();
+        //}
+
     }
 }

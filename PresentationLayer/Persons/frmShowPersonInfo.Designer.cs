@@ -34,16 +34,16 @@
             // 
             // ctrlPersonDetails1
             // 
-            this.ctrlPersonDetails1.Location = new System.Drawing.Point(21, 22);
+            this.ctrlPersonDetails1.Location = new System.Drawing.Point(4, 3);
             this.ctrlPersonDetails1.Name = "ctrlPersonDetails1";
-            this.ctrlPersonDetails1.Size = new System.Drawing.Size(896, 379);
+            this.ctrlPersonDetails1.Size = new System.Drawing.Size(645, 244);
             this.ctrlPersonDetails1.TabIndex = 2;
             // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::DVLD.Properties.Resources.Close_32;
-            this.btnClose.Location = new System.Drawing.Point(688, 403);
+            this.btnClose.Location = new System.Drawing.Point(424, 245);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(211, 52);
             this.btnClose.TabIndex = 3;
@@ -57,7 +57,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 468);
+            this.ClientSize = new System.Drawing.Size(653, 308);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrlPersonDetails1);
             this.Name = "frmShowPersonInfo";

@@ -73,6 +73,7 @@
             this.ctrlPersonDetailsWithFilter1.ShowAddPerson = true;
             this.ctrlPersonDetailsWithFilter1.Size = new System.Drawing.Size(618, 314);
             this.ctrlPersonDetailsWithFilter1.TabIndex = 0;
+            this.ctrlPersonDetailsWithFilter1.OnPersonSelected += new System.Action<int>(this.ctrlPersonDetailsWithFilter1_OnPersonSelected);
             // 
             // frmPersonLicneseHistory
             // 

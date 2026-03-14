@@ -206,7 +206,7 @@ namespace DVLD.Applications.Application
                     (LocalDrivingLicenseApplicationID);
 
             int TotalPassedTests = (int)dataGridView1.CurrentRow.Cells[5].Value;
-            bool LicenseExist = localDrivingLicenseApplication.IsLicenseExist();
+            bool LicenseExist = localDrivingLicenseApplication.IsLicenseIssued();
 
             issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalPassedTests == 3) && !LicenseExist;
             showLicenseToolStripMenuItem.Enabled = LicenseExist;
@@ -215,9 +215,9 @@ namespace DVLD.Applications.Application
             cancelApplicationToolStripMenuItem.Enabled = (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.New);
             deleteApplicationToolStripMenuItem.Enabled = (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.New) || (localDrivingLicenseApplication._Status == clsLocalDrivingLicenseApplication.enStatus.Cancelled);
 
-            bool PassedVisionTest = clsLocalDrivingLicenseApplication.DoesPassTestType(localDrivingLicenseApplication.LocalDrivingLicenseApplicationID, (int)clsTestTypes.enTestType.VisionTest);
-            bool PassedWrittenTest = clsLocalDrivingLicenseApplication.DoesPassTestType(localDrivingLicenseApplication.LocalDrivingLicenseApplicationID, (int)clsTestTypes.enTestType.WrittenTest);
-            bool PassedStreetTest = clsLocalDrivingLicenseApplication.DoesPassTestType(localDrivingLicenseApplication.LocalDrivingLicenseApplicationID, (int)clsTestTypes.enTestType.StreetTest);
+            bool PassedVisionTest = localDrivingLicenseApplication.DoesPassTestType((int)clsTestTypes.enTestType.VisionTest);
+            bool PassedWrittenTest = localDrivingLicenseApplication.DoesPassTestType((int)clsTestTypes.enTestType.WrittenTest);
+            bool PassedStreetTest = localDrivingLicenseApplication.DoesPassTestType((int)clsTestTypes.enTestType.StreetTest);
 
 
 
@@ -271,15 +271,19 @@ namespace DVLD.Applications.Application
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(ID);
+            int LocalDriverLicenseApp = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            int LicenseID = clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID(LocalDriverLicenseApp).GetActiveLicenseID();
+            frmShowDriverLicenseInfo frm = new frmShowDriverLicenseInfo(LicenseID);
             frm.ShowDialog();
         }
 
         private void showPersonsLicenseHostoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int ID = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
-            frmPersonLicneseHistory frm = new frmPersonLicneseHistory(ID);
+            
+            clsLocalDrivingLicenseApplication LocalApp = clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+            int PersonID = LocalApp._PersonInfo.PersonID;
+
+            frmPersonLicneseHistory frm = new frmPersonLicneseHistory(PersonID);
             frm.ShowDialog();
         }
     }

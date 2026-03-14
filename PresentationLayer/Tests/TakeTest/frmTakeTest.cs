@@ -15,56 +15,60 @@ namespace DVLD.Tests.TakeTest
 {
     public partial class frmTakeTest : Form
     {
-        private int _TestAppointmentID;
-        private int _LocalDrivingLicenseApplicationID;
-        clsTestAppointment _TestAppointmentInfo;
-        clsLocalDrivingLicenseApplication _LocalDrivingLicenseApplicationInfo;
-        public frmTakeTest(int TestAppointmentID, int LocalDrivingLicenseApplicationID )
+        private int _AppointmentID;
+        private clsTestTypes.enTestType _TestType;
+
+        private int _TestID = -1;
+        private clsTest _Test;
+
+
+
+        public frmTakeTest(int AppointmentID, clsTestTypes.enTestType TestType)
         {
             InitializeComponent();
-            _TestAppointmentID = TestAppointmentID;
-            _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
+            _AppointmentID = AppointmentID;
+            _TestType = TestType;
         }
-        private void _HandleTestType()
-        {
-            switch (_TestAppointmentInfo._TestTypeID)
-            {
-                case 1:
-                    pictureBox1.Image = DVLD.Properties.Resources.Vision_512;
-                    groupBox1.Text = "Vision Test";
-                    break;
-                case 2:
-                    pictureBox1.Image = DVLD.Properties.Resources.Written_Test_512;
-                    groupBox1.Text = "Written Test";
-                    break;
-                case 3:
-                    pictureBox1.Image = DVLD.Properties.Resources.driving_test_512;
-                    groupBox1.Text = "Street Test";
-                    break;
-            }
-        }
-        private void _FillInfo()
-        {
-            lblDLAppID.Text = _LocalDrivingLicenseApplicationInfo.LocalDrivingLicenseApplicationID.ToString();
-            lblLicenseClass.Text = _LocalDrivingLicenseApplicationInfo.LicenseClassInfo.ClassName;
-            lblName.Text = _LocalDrivingLicenseApplicationInfo.ApplicantFullName;
-            lblTrial.Text = clsLocalDrivingLicenseApplication.TotalTrialsPerTest(_LocalDrivingLicenseApplicationID, _TestAppointmentInfo._TestTypeID).ToString();
-            lblDate.Text = _TestAppointmentInfo._AppointmentDate.ToString();
-            lblFees.Text = _TestAppointmentInfo._PaidFees.ToString();
-        
-        }
+
         private void frmTakeTest_Load(object sender, EventArgs e)
         {
-            _TestAppointmentInfo = clsTestAppointment.FindByTestAppointmentID(_TestAppointmentID);
-            if(_TestAppointmentInfo._IsLocked)
+            ctrlSecheduledTest1.TestTypeID = _TestType;
+            ctrlSecheduledTest1.LoadInfo(_AppointmentID);
+
+            if (ctrlSecheduledTest1.TestAppointmentID == -1)
             {
-                MessageBox.Show("This Appoitnemt Has Been Done Previuosly You Cant Take Aggain");
-                this.Close();
+                btnSave.Enabled = false;
             }
-            _LocalDrivingLicenseApplicationInfo = clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID(_LocalDrivingLicenseApplicationID);
-            _HandleTestType();
-            _FillInfo();
+            else
+                btnSave.Enabled = true;
+
+            int _TestID = ctrlSecheduledTest1.TestID;
+
+            if(_TestID!=-1)
+            {
+                _Test = clsTest.Find(_TestID);
+
+                if(_Test.TestResult)
+                {
+                    rbPass.Checked = true;
+                }
+                else
+                {
+                    rbFail.Checked = true;
+                    txtNotes.Text = _Test.Notes;
+                }
+
+                lblUserMessage.Visible = true;
+                rbFail.Enabled = false;
+                rbPass.Enabled = false;
+                btnSave.Enabled = false;
+            }
+            else
+            {
+                _Test = new clsTest();
+            }
         }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -72,36 +76,24 @@ namespace DVLD.Tests.TakeTest
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to save. After saving you wount be able to change the Pass/Fail result of this test", "Confirm", MessageBoxButtons.YesNo)== DialogResult.No)
+            if(MessageBox.Show("Are you sure you want to save? You can not change results after saving","",MessageBoxButtons.YesNo,MessageBoxIcon.Warning)==DialogResult.No)
             {
                 return;
             }
-            clsTest Test = new clsTest();
-            Test.TestAppointmentID = _TestAppointmentID;
-            if(rbPass.Checked)
+
+            _Test.TestAppointmentID = _AppointmentID;
+            _Test.TestResult = rbPass.Checked;
+            _Test.Notes = txtNotes.Text.Trim();
+            _Test.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+
+            if(_Test.Save())
             {
-                Test.TestResult = true;
-            }
-            else
-            {
-                Test.TestResult = false;
-            }
-            Test.Notes = txtNotes.Text;
-            Test.CreatedByUserID = clsGlobal.CurrentUser.UserID;
-            if (Test.Save())
-            {
-                _TestAppointmentInfo._IsLocked = true;
-                _TestAppointmentInfo.Save();
-                lblTestID.Text = Test.TestID.ToString();
-                MessageBox.Show("Test Information Has Been Successfully Saved, And Test Appointment Is Locked");
+                MessageBox.Show("Data Saved Successfully","Saved",MessageBoxButtons.OK);
                 btnSave.Enabled = false;
-                rbFail.Enabled = false;
-                rbPass.Enabled = false;
-                txtNotes.Enabled = false;
             }
             else
             {
-                MessageBox.Show("Saving Test Information Failed");
+                MessageBox.Show("Error: Data Is Not Saved Successfully", "Error", MessageBoxButtons.OK);
             }
         }
     }

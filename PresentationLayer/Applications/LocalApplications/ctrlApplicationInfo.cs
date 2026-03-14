@@ -77,7 +77,9 @@ namespace DVLD.Test_Appointment.Controls
 
         private void linkShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            frmDriverLicenseInfo frm = new frmDriverLicenseInfo(_LocalDrivingLicenseApplication.LocalDrivingLicenseApplicationID);
+            int LocalDriverApp = Convert.ToInt32(lblLDLAppID.Text);
+            int LicenseID = clsLocalDrivingLicenseApplication.FindByLocalDrivingApplicationID(LocalDriverApp).GetActiveLicenseID();
+            frmShowDriverLicenseInfo frm = new frmShowDriverLicenseInfo(LicenseID);
             frm.ShowDialog();
         }
     }

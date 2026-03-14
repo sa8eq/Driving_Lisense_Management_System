@@ -128,7 +128,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ctrlPersonDetails1);
             this.Name = "ctrlUserCard";
-            this.Size = new System.Drawing.Size(900, 339);
+            this.Size = new System.Drawing.Size(636, 339);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

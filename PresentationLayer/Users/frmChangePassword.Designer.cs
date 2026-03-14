@@ -52,7 +52,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(459, 385);
+            this.label2.Location = new System.Drawing.Point(211, 365);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 16);
             this.label2.TabIndex = 2;
@@ -62,7 +62,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(482, 416);
+            this.label4.Location = new System.Drawing.Point(234, 396);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 16);
             this.label4.TabIndex = 3;
@@ -72,7 +72,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(460, 447);
+            this.label6.Location = new System.Drawing.Point(212, 427);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(128, 16);
             this.label6.TabIndex = 4;
@@ -80,7 +80,7 @@
             // 
             // txtCurrentPassword
             // 
-            this.txtCurrentPassword.Location = new System.Drawing.Point(631, 383);
+            this.txtCurrentPassword.Location = new System.Drawing.Point(383, 363);
             this.txtCurrentPassword.Name = "txtCurrentPassword";
             this.txtCurrentPassword.Size = new System.Drawing.Size(153, 20);
             this.txtCurrentPassword.TabIndex = 5;
@@ -88,7 +88,7 @@
             // 
             // txtNewPassword
             // 
-            this.txtNewPassword.Location = new System.Drawing.Point(631, 414);
+            this.txtNewPassword.Location = new System.Drawing.Point(383, 394);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Size = new System.Drawing.Size(153, 20);
             this.txtNewPassword.TabIndex = 6;
@@ -96,7 +96,7 @@
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(631, 445);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(383, 425);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(153, 20);
             this.txtConfirmPassword.TabIndex = 7;
@@ -105,7 +105,7 @@
             // btnSave
             // 
             this.btnSave.Image = global::DVLD.Properties.Resources.Save_32;
-            this.btnSave.Location = new System.Drawing.Point(793, 375);
+            this.btnSave.Location = new System.Drawing.Point(545, 355);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 47);
             this.btnSave.TabIndex = 8;
@@ -118,7 +118,7 @@
             // btnClose
             // 
             this.btnClose.Image = global::DVLD.Properties.Resources.Close_32;
-            this.btnClose.Location = new System.Drawing.Point(793, 423);
+            this.btnClose.Location = new System.Drawing.Point(545, 403);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 44);
             this.btnClose.TabIndex = 9;
@@ -135,7 +135,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVLD.Properties.Resources.Password_32;
-            this.pictureBox1.Location = new System.Drawing.Point(592, 378);
+            this.pictureBox1.Location = new System.Drawing.Point(344, 358);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(33, 30);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -145,7 +145,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::DVLD.Properties.Resources.Password_32;
-            this.pictureBox2.Location = new System.Drawing.Point(592, 409);
+            this.pictureBox2.Location = new System.Drawing.Point(344, 389);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(33, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -155,7 +155,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::DVLD.Properties.Resources.Password_32;
-            this.pictureBox3.Location = new System.Drawing.Point(592, 440);
+            this.pictureBox3.Location = new System.Drawing.Point(344, 420);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(33, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -164,16 +164,16 @@
             // 
             // ctrlUserCard1
             // 
-            this.ctrlUserCard1.Location = new System.Drawing.Point(2, 2);
+            this.ctrlUserCard1.Location = new System.Drawing.Point(12, 8);
             this.ctrlUserCard1.Name = "ctrlUserCard1";
-            this.ctrlUserCard1.Size = new System.Drawing.Size(900, 485);
+            this.ctrlUserCard1.Size = new System.Drawing.Size(640, 345);
             this.ctrlUserCard1.TabIndex = 13;
             // 
             // frmChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 492);
+            this.ClientSize = new System.Drawing.Size(649, 453);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);

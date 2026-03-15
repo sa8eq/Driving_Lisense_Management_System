@@ -1,4 +1,5 @@
 ﻿using BussinesLayer;
+using DVLD.Licenses.International_Licenses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -117,14 +118,6 @@ namespace DVLD.Licenses.Control
             _LoadInternationalLicenseInfo();
         }
 
-        //private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    //int LicenseID = (int)dgvLocalLicensesHistory.CurrentRow.Cells[0].Value;
-        //    //DriverLicense.frmShowLicenseInfo frm = new DriverLicense.frmShowLicenseInfo(LicenseID);
-        //    //frm.ShowDialog();
-
-        //}
-
         public void Clear()
         {
             _dtDriverLocalLicensesHistory.Clear();
@@ -132,19 +125,19 @@ namespace DVLD.Licenses.Control
 
         }
 
-        private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void showInternationalLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            int InternationalLicenseID = (int)dataGridView2.CurrentRow.Cells[0].Value;
+            frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo(InternationalLicenseID);
+            frm.ShowDialog();
+        }
+
+        private void showLicenseInfoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             int LicenseID = (int)dataGridView1.CurrentRow.Cells[0].Value;
             frmShowDriverLicenseInfo frm = new frmShowDriverLicenseInfo(LicenseID);
             frm.ShowDialog();
         }
-
-        //private void InternationalLicenseHistorytoolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    int InternationalLicenseID = (int)dgvInternationalLicensesHistory.CurrentRow.Cells[0].Value;
-        //    frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo(InternationalLicenseID);
-        //    frm.ShowDialog();
-        //}
-
     }
 }

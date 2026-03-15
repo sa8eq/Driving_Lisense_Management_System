@@ -33,26 +33,26 @@
             this.tcLocal = new System.Windows.Forms.TabControl();
             this.tpLocal = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.LocalMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblRecords = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tpInternational = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.lblinterRecords = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.InternationalMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showInternationalLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.tcLocal.SuspendLayout();
             this.tpLocal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.LocalMenuStrip.SuspendLayout();
             this.tpInternational.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
-            this.contextMenuStrip2.SuspendLayout();
+            this.InternationalMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -94,12 +94,28 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
+            this.dataGridView1.ContextMenuStrip = this.LocalMenuStrip;
             this.dataGridView1.Location = new System.Drawing.Point(9, 27);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(797, 172);
             this.dataGridView1.TabIndex = 3;
+            // 
+            // LocalMenuStrip
+            // 
+            this.LocalMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showLicenseInfoToolStripMenuItem});
+            this.LocalMenuStrip.Name = "contextMenuStrip1";
+            this.LocalMenuStrip.Size = new System.Drawing.Size(186, 42);
+            // 
+            // showLicenseInfoToolStripMenuItem
+            // 
+            this.showLicenseInfoToolStripMenuItem.Image = global::DVLD.Properties.Resources.License_View_32;
+            this.showLicenseInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.showLicenseInfoToolStripMenuItem.Name = "showLicenseInfoToolStripMenuItem";
+            this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
+            this.showLicenseInfoToolStripMenuItem.Text = "Show License Info";
+            this.showLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLicenseInfoToolStripMenuItem_Click_1);
             // 
             // lblRecords
             // 
@@ -145,15 +161,6 @@
             this.tpInternational.Text = "International";
             this.tpInternational.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.ContextMenuStrip = this.contextMenuStrip2;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 24);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(800, 178);
-            this.dataGridView2.TabIndex = 0;
-            // 
             // lblinterRecords
             // 
             this.lblinterRecords.AutoSize = true;
@@ -184,28 +191,24 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Local Licenses History:";
             // 
-            // contextMenuStrip1
+            // dataGridView2
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showLicenseInfoToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 64);
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.ContextMenuStrip = this.InternationalMenuStrip;
+            this.dataGridView2.Location = new System.Drawing.Point(6, 24);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(800, 178);
+            this.dataGridView2.TabIndex = 0;
             // 
-            // showLicenseInfoToolStripMenuItem
+            // InternationalMenuStrip
             // 
-            this.showLicenseInfoToolStripMenuItem.Image = global::DVLD.Properties.Resources.License_View_32;
-            this.showLicenseInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.showLicenseInfoToolStripMenuItem.Name = "showLicenseInfoToolStripMenuItem";
-            this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(196, 38);
-            this.showLicenseInfoToolStripMenuItem.Text = "Show License Info";
-            this.showLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLicenseInfoToolStripMenuItem_Click);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.InternationalMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showInternationalLicenseInfoToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(256, 42);
+            this.InternationalMenuStrip.Name = "contextMenuStrip2";
+            this.InternationalMenuStrip.Size = new System.Drawing.Size(256, 42);
             // 
             // showInternationalLicenseInfoToolStripMenuItem
             // 
@@ -214,6 +217,7 @@
             this.showInternationalLicenseInfoToolStripMenuItem.Name = "showInternationalLicenseInfoToolStripMenuItem";
             this.showInternationalLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(255, 38);
             this.showInternationalLicenseInfoToolStripMenuItem.Text = "Show International License Info";
+            this.showInternationalLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showInternationalLicenseInfoToolStripMenuItem_Click);
             // 
             // ctrlLicneseHistory
             // 
@@ -227,11 +231,11 @@
             this.tpLocal.ResumeLayout(false);
             this.tpLocal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.LocalMenuStrip.ResumeLayout(false);
             this.tpInternational.ResumeLayout(false);
             this.tpInternational.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.contextMenuStrip2.ResumeLayout(false);
+            this.InternationalMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -250,9 +254,9 @@
         private System.Windows.Forms.Label lblinterRecords;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip LocalMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem showLicenseInfoToolStripMenuItem;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ContextMenuStrip InternationalMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem showInternationalLicenseInfoToolStripMenuItem;
     }
 }

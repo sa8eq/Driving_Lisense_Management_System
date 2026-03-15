@@ -503,6 +503,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LocalDriving_License1 {
+            get {
+                object obj = ResourceManager.GetObject("LocalDriving License1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Logo_Final {
             get {
                 object obj = ResourceManager.GetObject("Logo Final", resourceCulture);
@@ -566,6 +576,16 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap New_Application_64 {
             get {
                 object obj = ResourceManager.GetObject("New Application 64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap New_Application_641 {
+            get {
+                object obj = ResourceManager.GetObject("New Application 641", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -696,6 +716,16 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap PersonLicenseHistory_32 {
             get {
                 object obj = ResourceManager.GetObject("PersonLicenseHistory 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PersonLicenseHistory_321 {
+            get {
+                object obj = ResourceManager.GetObject("PersonLicenseHistory 321", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

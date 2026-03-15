@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD.Applications;
 using DVLD.Drivers;
+using DVLD.Applications.International_Applications;
 namespace DVLD
 {
     public partial class frmMain : Form
@@ -106,6 +107,18 @@ namespace DVLD
         private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageLocalDrivingLicensesApplications frm = new frmManageLocalDrivingLicensesApplications();
+            frm.ShowDialog();
+        }
+
+        private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNewInternationalApplication frm = new frmNewInternationalApplication();
+            frm.ShowDialog();
+        }
+
+        private void internationalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageInternationalLicenseApplications frm = new frmManageInternationalLicenseApplications();
             frm.ShowDialog();
         }
     }

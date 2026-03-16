@@ -93,6 +93,8 @@ namespace DVLD.Licenses.DetainLicenses
             }
 
             clsLicense License = clsLicense.Find(SelectedLicenseID);
+            if (License == null)
+                return;
             if (License.IsDetained)
             {
                 

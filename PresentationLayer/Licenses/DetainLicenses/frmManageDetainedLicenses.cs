@@ -26,12 +26,14 @@ namespace DVLD.Licenses.DetainLicenses
         {
             frmDetainLicense frm = new frmDetainLicense();
             frm.ShowDialog();
+            frmManageDetainedLicenses_Load(null, null);
         }
 
         private void btnRelease_Click(object sender, EventArgs e)
         {
             frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense();
             frm.ShowDialog();
+            frmManageDetainedLicenses_Load(null, null);
         }
 
         private void frmManageDetainedLicenses_Load(object sender, EventArgs e)
@@ -95,7 +97,7 @@ namespace DVLD.Licenses.DetainLicenses
                     }
                     ;
 
-                case "National No.":
+                case "National Number":
                     FilterColumn = "NationalNumber";
                     break;
 

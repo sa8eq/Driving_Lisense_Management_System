@@ -5,14 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\applications\\international applications\\frmmanageinternationallicenseapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:applications\\international applications\\frmmanageinternationallicenseapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\applications\\international applications\\frmmanageinternationallicenseapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:applications\\international applications\\frmmanageinternationallicenseapplications.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|c:\\users\\sadeq\\desktop\\road map\\course 19\\driving lisence management system\\presentationlayer\\applications\\international applications\\controls\\ctrlinternationalapplicationinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9352C96E-345B-4076-A4E7-802A24DECC9B}|DVLD.csproj|solutionrelative:applications\\international applications\\controls\\ctrlinternationalapplicationinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,19 +26,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmManageInternationalLicenseApplications.cs",
-              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\International Applications\\frmManageInternationalLicenseApplications.cs",
-              "RelativeDocumentMoniker": "Applications\\International Applications\\frmManageInternationalLicenseApplications.cs",
-              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\International Applications\\frmManageInternationalLicenseApplications.cs",
-              "RelativeToolTip": "Applications\\International Applications\\frmManageInternationalLicenseApplications.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAEwLgAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T14:45:25.198Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "frmManageInternationalLicenseApplications.cs [Design]",
               "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\International Applications\\frmManageInternationalLicenseApplications.cs",
@@ -54,19 +33,7 @@
               "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\International Applications\\frmManageInternationalLicenseApplications.cs [Design]",
               "RelativeToolTip": "Applications\\International Applications\\frmManageInternationalLicenseApplications.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T13:03:19.665Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ctrlInternationalApplicationInfo.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\International Applications\\Controls\\ctrlInternationalApplicationInfo.cs",
-              "RelativeDocumentMoniker": "Applications\\International Applications\\Controls\\ctrlInternationalApplicationInfo.cs",
-              "ToolTip": "C:\\Users\\sadeq\\Desktop\\Road Map\\Course 19\\Driving Lisence Management System\\PresentationLayer\\Applications\\International Applications\\Controls\\ctrlInternationalApplicationInfo.cs [Design]",
-              "RelativeToolTip": "Applications\\International Applications\\Controls\\ctrlInternationalApplicationInfo.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T13:03:13.134Z",
+              "WhenOpened": "2026-03-16T09:48:31.115Z",
               "EditorCaption": " [Design]"
             }
           ]

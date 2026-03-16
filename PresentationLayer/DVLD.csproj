@@ -89,10 +89,10 @@
     <Compile Include="Licenses\International Licenses\Control\ctrlInternationLicenseInfo.Designer.cs">
       <DependentUpon>ctrlInternationLicenseInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\International Licenses\frmNewInternationalApplication.cs">
+    <Compile Include="Applications\International Applications\frmNewInternationalApplication.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses\International Licenses\frmNewInternationalApplication.Designer.cs">
+    <Compile Include="Applications\International Applications\frmNewInternationalApplication.Designer.cs">
       <DependentUpon>frmNewInternationalApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\LocalApplications\ctrlApplicationInfo.cs">
@@ -311,7 +311,7 @@
     <EmbeddedResource Include="Licenses\International Licenses\Control\ctrlInternationLicenseInfo.resx">
       <DependentUpon>ctrlInternationLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\International Licenses\frmNewInternationalApplication.resx">
+    <EmbeddedResource Include="Applications\International Applications\frmNewInternationalApplication.resx">
       <DependentUpon>frmNewInternationalApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\LocalApplications\ctrlApplicationInfo.resx">

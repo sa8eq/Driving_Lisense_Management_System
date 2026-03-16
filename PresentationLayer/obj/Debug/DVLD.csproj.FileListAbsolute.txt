@@ -11,6 +11,8 @@ C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\Pres
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Applications.Controls.ctrlApplicationBasicInfo.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Applications.International_Applications.Controls.ctrlInternationalApplicationInfo.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Applications.International_Applications.frmManageInternationalLicenseApplications.resources
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Licenses.DetainLicenses.frmDetainLicense.resources
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Licenses.DetainLicenses.frmReleaseDetainedLicense.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Licenses.International_Licenses.Control.ctrlInternationLicenseInfo.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Applications.International_Applications.frmNewInternationalApplication.resources
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Test_Appointment.Controls.ctrlApplicationInfo.resources
@@ -51,3 +53,4 @@ C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\Pres
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.csproj.Up2Date
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.exe
 C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.pdb
+C:\Users\sadeq\Desktop\Road Map\Course 19\Driving Lisence Management System\PresentationLayer\obj\Debug\DVLD.Licenses.DetainLicenses.frmManageDetainedLicenses.resources

@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using DVLD.Applications;
 using DVLD.Drivers;
 using DVLD.Applications.International_Applications;
+using DVLD.Licenses.DetainLicenses;
 namespace DVLD
 {
     public partial class frmMain : Form
@@ -119,6 +120,24 @@ namespace DVLD
         private void internationalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmManageInternationalLicenseApplications frm = new frmManageInternationalLicenseApplications();
+            frm.ShowDialog();
+        }
+
+        private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDetainLicense frm = new frmDetainLicense();
+            frm.ShowDialog();
+        }
+
+        private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense();
+            frm.ShowDialog();
+        }
+
+        private void manageDetainedLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmManageDetainedLicenses frm = new frmManageDetainedLicenses();
             frm.ShowDialog();
         }
     }

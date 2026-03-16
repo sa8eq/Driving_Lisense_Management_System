@@ -71,7 +71,7 @@ namespace DVLD.Licenses.Control
             }
             lblLicneseID.Text = _License.LicenseID.ToString();
             lblIsActive.Text = _License.IsActive ? "Yes" : "No";
-            //lblIsDetained.Text = _License.IsDetained ? "Yes" : "No";
+            lblIsDetained.Text = _License.IsDetained ? "Yes" : "No";
             lblClass.Text = _License.LicenseClassIfo.ClassName;
             lblName.Text = _License.DriverInfo.Person.FullName;
             lblNationalnumber.Text = _License.DriverInfo.Person.NationalNumber;

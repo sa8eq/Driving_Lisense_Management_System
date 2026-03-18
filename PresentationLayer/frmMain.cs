@@ -17,6 +17,8 @@ using DVLD.Applications;
 using DVLD.Drivers;
 using DVLD.Applications.International_Applications;
 using DVLD.Licenses.DetainLicenses;
+using DVLD.Applications.RenewDrivingLicenseApplication;
+using DVLD.Applications.ReplaceLostDamagedDrivingLicenseApplication;
 namespace DVLD
 {
     public partial class frmMain : Form
@@ -144,6 +146,18 @@ namespace DVLD
         private void releaseDetainedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmReleaseDetainedLicense frm = new frmReleaseDetainedLicense();
+            frm.ShowDialog();
+        }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRenewDrivingLicense frm = new frmRenewDrivingLicense();
+            frm.ShowDialog();
+        }
+
+        private void replacementForLostOrDamagedDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReplaceLicense frm = new frmReplaceLicense();
             frm.ShowDialog();
         }
     }

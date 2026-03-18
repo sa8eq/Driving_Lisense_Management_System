@@ -1,4 +1,5 @@
 ﻿using BussinesLayer;
+using DVLD.Classes;
 using DVLD.Classess;
 using System;
 using System.Collections.Generic;
@@ -14,16 +15,94 @@ namespace DVLD.Licenses.DetainLicenses
 {
     public partial class frmDetainLicense : Form
     {
-        private int _SelectedLicenseID;
+        private int _DetainID = -1;
+        private int _SelectedLicenseID = -1;
         public frmDetainLicense()
         {
             InitializeComponent();
+        }
+
+        private void btnDetain_Click(object sender, EventArgs e)
+        {
+            if (!this.ValidateChildren())
+            {
+                MessageBox.Show("You Have To Enter A Find Amout To Proceed To Detain This License", "Mandatory Field", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+
+
+            if (MessageBox.Show("Are you sure you want to Detain This license?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                return;
+            }
+            _DetainID = ctrlDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.Detain(Convert.ToSingle(txtFees.Text), clsGlobal.CurrentUser.UserID);
+
+            if (_DetainID == -1)
+            {
+                MessageBox.Show("Couldn't Detain This License With ID: " + _SelectedLicenseID.ToString(), "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                return;
+            }
+          
+            
+            MessageBox.Show("License With ID: " + _SelectedLicenseID.ToString() + " Has Been Detained Successfully", "Detained", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            
+            lblDetainID.Text = _DetainID.ToString();
+            ctrlDrivingLicenseInfoWithFilter1.FilterEnabled = false;
+            txtFees.Enabled = false;
+            btnDetain.Enabled = false;
+        }
+
+        private void frmDetainLicense_Load(object sender, EventArgs e)
+        {
+            lblDetainDate.Text = clsFormat.DateToShort(DateTime.Now);
+            lblCreatedByUser.Text = clsGlobal.CurrentUser.Username;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void ctrlDrivingLicenseInfoWithFilter1_OnLicenseSelected(int obj)
+        {
+             _SelectedLicenseID = obj;
+
+            lblLicenseID.Text = _SelectedLicenseID.ToString();
+            linklnlShowLicenseHistory.Enabled = (_SelectedLicenseID!=-1);
+            linklblShowLicenseInfo.Enabled = (_SelectedLicenseID!=-1);
+            if (_SelectedLicenseID == -1)
+            {
+                return;
+            }
+            ctrlDrivingLicenseInfoWithFilter1.FilterEnabled = false;
+
+         
+            if (ctrlDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.IsDetained)
+            {
+
+                MessageBox.Show("You Cant Detain A License That Is Already Detaind. Release It First", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!ctrlDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.IsActive)
+            {
+
+                MessageBox.Show("This License Is Inactive, You Can Not Detain It", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                return;
+            }
+            if (ctrlDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.ExpirationDate < DateTime.Now)
+            {
+
+                MessageBox.Show("This License Is Expired, You Can Not Detain It", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            btnDetain.Enabled = true;
+            txtFees.Enabled = true;
+            txtFees.Focus();
+
+        }
+
 
         private void linklblShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -37,40 +116,6 @@ namespace DVLD.Licenses.DetainLicenses
             frm.ShowDialog();
         }
 
-        private void btnDetain_Click(object sender, EventArgs e)
-        {
-            if(!this.ValidateChildren())
-            {
-                MessageBox.Show("You Have To Enter A Find Amout To Proceed To Detain This License", "Mandatory Field", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            }
-            
-
-            if (MessageBox.Show("Are you sure you want to Detain This license?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
-            {
-                return;
-            }
-            clsLicense DetainedLicense = clsLicense.Find(_SelectedLicenseID);
-            int DetainedID = DetainedLicense.Detain(Convert.ToSingle(txtFees.Text), clsGlobal.CurrentUser.UserID);
-
-            if (DetainedID == -1)
-            {
-                MessageBox.Show("Couldn't Detain This License With ID: " + _SelectedLicenseID.ToString(), "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                return;
-            }
-            else
-            {
-                MessageBox.Show("License With ID: " + _SelectedLicenseID.ToString() + " Has Been Detained Successfully", "Detained", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
-            lblDetainID.Text = DetainedID.ToString();
-            lblDetainDate.Text = DateTime.Now.ToShortDateString();
-            lblLicenseID.Text = _SelectedLicenseID.ToString();
-            lblCreatedByUserID.Text = clsGlobal.CurrentUser.Username;
-
-
-            txtFees.Enabled = false;
-            btnDetain.Enabled = false;
-        }
 
         private void txtFees_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -80,46 +125,6 @@ namespace DVLD.Licenses.DetainLicenses
             }
         }
 
-        private void ctrlDrivingLicenseInfoWithFilter1_OnLicenseSelected(int obj)
-        {
-            int SelectedLicenseID = obj;
-
-            if (SelectedLicenseID != -1)
-            {
-                linklblShowLicenseInfo.Enabled = true;
-                linklnlShowLicenseHistory.Enabled = true;
-                ctrlDrivingLicenseInfoWithFilter1.FilterEnabled = false;
-                _SelectedLicenseID = SelectedLicenseID;
-            }
-
-            clsLicense License = clsLicense.Find(SelectedLicenseID);
-            if (License == null)
-                return;
-            if (License.IsDetained)
-            {
-                
-                MessageBox.Show("You Cant Detain A License That Is Already Detaind. Release It First", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                return;
-            }
-            if (!License.IsActive)
-            {
-            
-                MessageBox.Show("This License Is Inactive, You Can Not Detain It", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                return;
-            }
-            if (License.ExpirationDate < DateTime.Now)
-            {
-                
-                MessageBox.Show("This License Is Expired, You Can Not Detain It", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                return;
-            }
-
-            
-            btnDetain.Enabled = true;
-            txtFees.Enabled = true;
-            txtFees.Focus();
-
-        }
 
         private void txtFees_Validating(object sender, CancelEventArgs e)
         {
@@ -135,6 +140,9 @@ namespace DVLD.Licenses.DetainLicenses
             }
         }
 
-       
+        private void frmDetainLicense_Activated(object sender, EventArgs e)
+        {
+
+        }
     }
 }

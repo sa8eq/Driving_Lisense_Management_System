@@ -40,7 +40,7 @@
             this.lblLicenseID = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblCreatedByUserID = new System.Windows.Forms.Label();
+            this.lblCreatedByUser = new System.Windows.Forms.Label();
             this.lblDetainDate = new System.Windows.Forms.Label();
             this.lblDetainID = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -83,7 +83,7 @@
             this.groupBox1.Controls.Add(this.lblLicenseID);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.lblCreatedByUserID);
+            this.groupBox1.Controls.Add(this.lblCreatedByUser);
             this.groupBox1.Controls.Add(this.lblDetainDate);
             this.groupBox1.Controls.Add(this.lblDetainID);
             this.groupBox1.Controls.Add(this.label4);
@@ -186,15 +186,15 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "License ID:";
             // 
-            // lblCreatedByUserID
+            // lblCreatedByUser
             // 
-            this.lblCreatedByUserID.AutoSize = true;
-            this.lblCreatedByUserID.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreatedByUserID.Location = new System.Drawing.Point(568, 46);
-            this.lblCreatedByUserID.Name = "lblCreatedByUserID";
-            this.lblCreatedByUserID.Size = new System.Drawing.Size(45, 14);
-            this.lblCreatedByUserID.TabIndex = 5;
-            this.lblCreatedByUserID.Text = "[????]";
+            this.lblCreatedByUser.AutoSize = true;
+            this.lblCreatedByUser.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreatedByUser.Location = new System.Drawing.Point(568, 46);
+            this.lblCreatedByUser.Name = "lblCreatedByUser";
+            this.lblCreatedByUser.Size = new System.Drawing.Size(45, 14);
+            this.lblCreatedByUser.TabIndex = 5;
+            this.lblCreatedByUser.Text = "[????]";
             // 
             // lblDetainDate
             // 
@@ -326,6 +326,8 @@
             this.Controls.Add(this.label1);
             this.Name = "frmDetainLicense";
             this.Text = "frmDetainLicense";
+            this.Activated += new System.EventHandler(this.frmDetainLicense_Activated);
+            this.Load += new System.EventHandler(this.frmDetainLicense_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -352,7 +354,7 @@
         private System.Windows.Forms.Label lblLicenseID;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblCreatedByUserID;
+        private System.Windows.Forms.Label lblCreatedByUser;
         private System.Windows.Forms.Label lblDetainDate;
         private System.Windows.Forms.Label lblDetainID;
         private System.Windows.Forms.Label label4;

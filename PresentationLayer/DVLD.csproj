@@ -83,22 +83,34 @@
     <Compile Include="Applications\International Applications\frmManageInternationalLicenseApplications.Designer.cs">
       <DependentUpon>frmManageInternationalLicenseApplications.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\RenewDrivingLicenseApplication\frmRenewDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\RenewDrivingLicenseApplication\frmRenewDrivingLicense.Designer.cs">
+      <DependentUpon>frmRenewDrivingLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\ReplaceLostDamagedDrivingLicenseApplication\frmReplaceLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\ReplaceLostDamagedDrivingLicenseApplication\frmReplaceLicense.Designer.cs">
+      <DependentUpon>frmReplaceLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Licenses\DetainLicenses\frmDetainLicense.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Licenses\DetainLicenses\frmDetainLicense.Designer.cs">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\DetainLicenses\frmManageDetainedLicenses.cs">
+    <Compile Include="Applications\Release Detained Licenses\frmManageDetainedLicenses.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses\DetainLicenses\frmManageDetainedLicenses.Designer.cs">
+    <Compile Include="Applications\Release Detained Licenses\frmManageDetainedLicenses.Designer.cs">
       <DependentUpon>frmManageDetainedLicenses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\DetainLicenses\frmReleaseDetainedLicense.cs">
+    <Compile Include="Applications\Release Detained Licenses\frmReleaseDetainedLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Licenses\DetainLicenses\frmReleaseDetainedLicense.Designer.cs">
+    <Compile Include="Applications\Release Detained Licenses\frmReleaseDetainedLicense.Designer.cs">
       <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\International Licenses\Control\ctrlInternationLicenseInfo.cs">
@@ -326,13 +338,19 @@
     <EmbeddedResource Include="Applications\International Applications\frmManageInternationalLicenseApplications.resx">
       <DependentUpon>frmManageInternationalLicenseApplications.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\RenewDrivingLicenseApplication\frmRenewDrivingLicense.resx">
+      <DependentUpon>frmRenewDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ReplaceLostDamagedDrivingLicenseApplication\frmReplaceLicense.resx">
+      <DependentUpon>frmReplaceLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Licenses\DetainLicenses\frmDetainLicense.resx">
       <DependentUpon>frmDetainLicense.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\DetainLicenses\frmManageDetainedLicenses.resx">
+    <EmbeddedResource Include="Applications\Release Detained Licenses\frmManageDetainedLicenses.resx">
       <DependentUpon>frmManageDetainedLicenses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\DetainLicenses\frmReleaseDetainedLicense.resx">
+    <EmbeddedResource Include="Applications\Release Detained Licenses\frmReleaseDetainedLicense.resx">
       <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\International Licenses\Control\ctrlInternationLicenseInfo.resx">
@@ -726,6 +744,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Release Detained License 64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Renew Driving License 322.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Renew Driving License 323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User 32 -21.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

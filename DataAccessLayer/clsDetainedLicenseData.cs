@@ -12,6 +12,120 @@ namespace DataAccessLayer
     public class clsDetainedLicenseData
     {
 
+        public static bool GetDetainedLicenseInfoByID(int DetainID,
+            ref int LicenseID, ref DateTime DetainDate,
+            ref float FineFees, ref int CreatedByUserID,
+            ref bool IsReleased, ref DateTime ReleaseDate,
+            ref int ReleasedByUserID, ref int ReleaseApplicationID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = "SELECT * FROM DetainedLicenses WHERE DetainID = @DetainID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@DetainID", DetainID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+
+                    isFound = true;
+
+                    LicenseID = (int)reader["LicenseID"];
+                    DetainDate = (DateTime)reader["DetainDate"];
+                    FineFees = Convert.ToSingle(reader["FineFees"]);
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                    IsReleased = (bool)reader["IsReleased"];
+
+                    if (reader["ReleaseDate"] == DBNull.Value)
+
+                        ReleaseDate = DateTime.MaxValue;
+                    else
+                        ReleaseDate = (DateTime)reader["ReleaseDate"];
+
+
+                    if (reader["ReleasedByUserID"] == DBNull.Value)
+
+                        ReleasedByUserID = -1;
+                    else
+                        ReleasedByUserID = (int)reader["ReleasedByUserID"];
+
+                    if (reader["ReleaseApplicationID"] == DBNull.Value)
+
+                        ReleaseApplicationID = -1;
+                    else
+                        ReleaseApplicationID = (int)reader["ReleaseApplicationID"];
+
+                }
+                else
+                {
+                    // The record was not found
+                    isFound = false;
+                }
+
+                reader.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                isFound = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isFound;
+        }
+
+        public static bool GetDetainedLicenseInfoByLicenseID(int LicenseID,
+        ref int DetainID, ref DateTime DetainDate, ref float FineFees,
+    ref int CreatedByUserID, ref bool IsReleased, ref DateTime ReleaseDate,
+    ref int ReleasedByUserID, ref int ReleaseApplicationID)
+        {
+            bool isFound = false;
+            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string Query = "SELECT top 1 * FROM DetainedLicenses WHERE LicenseID = @LicenseID order by DetainID desc";
+
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+            try
+            {
+                Connection.Open();
+                SqlDataReader Reader = Command.ExecuteReader();
+
+                if (Reader.Read())
+                {
+                    isFound = true;
+                    DetainID = (int)Reader["DetainID"];
+                    DetainDate = (DateTime)Reader["DetainDate"];
+                    FineFees = Convert.ToSingle(Reader["FineFees"]);
+                    CreatedByUserID = (int)Reader["CreatedByUserID"];
+                    IsReleased = (bool)Reader["IsReleased"];
+
+                    ReleaseDate = (Reader["ReleaseDate"] == DBNull.Value) ? DateTime.MinValue : (DateTime)Reader["ReleaseDate"];
+                    ReleasedByUserID = (Reader["ReleasedByUserID"] == DBNull.Value) ? -1 : (int)Reader["ReleasedByUserID"];
+                    ReleaseApplicationID = (Reader["ReleaseApplicationID"] == DBNull.Value) ? -1 : (int)Reader["ReleaseApplicationID"];
+                }
+                Reader.Close();
+            }
+            catch (Exception ex) { isFound = false; }
+            finally { Connection.Close(); }
+
+            return isFound;
+        }
+
         public static int AddNewDetainedLicense(int LicenseID, DateTime DetainDate,
                 float FineFees, int CreatedByUserID)
         {
@@ -46,6 +160,49 @@ namespace DataAccessLayer
             finally { Connection.Close(); }
 
             return DetainID;
+        }
+
+        public static bool UpdateDetainedLicense(int DetainID,
+           int LicenseID, DateTime DetainDate,
+           float FineFees, int CreatedByUserID)
+        {
+
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"UPDATE dbo.DetainedLicenses
+                              SET LicenseID = @LicenseID, 
+                              DetainDate = @DetainDate, 
+                              FineFees = @FineFees,
+                              CreatedByUserID = @CreatedByUserID,   
+                              WHERE DetainID=@DetainID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@DetainedLicenseID", DetainID);
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+            command.Parameters.AddWithValue("@DetainDate", DetainDate);
+            command.Parameters.AddWithValue("@FineFees", FineFees);
+            command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
         }
 
         public static bool ReleaseDetainedLicense(int DetainID, int ReleasedByUserID, int ReleaseApplicationID)
@@ -121,46 +278,5 @@ namespace DataAccessLayer
 
             return IsDetained;
         }
-
-        public static bool GetDetainedLicenseInfoByLicenseID(int LicenseID,
-        ref int DetainID, ref DateTime DetainDate, ref float FineFees,
-    ref int CreatedByUserID, ref bool IsReleased, ref DateTime ReleaseDate,
-    ref int ReleasedByUserID, ref int ReleaseApplicationID)
-        {
-            bool isFound = false;
-            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string Query = "SELECT * FROM DetainedLicenses WHERE LicenseID = @LicenseID And IsReleased = 0";
-
-            SqlCommand Command = new SqlCommand(Query, Connection);
-            Command.Parameters.AddWithValue("@LicenseID", LicenseID);
-
-            try
-            {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-
-                if (Reader.Read())
-                {
-                    isFound = true;
-                    DetainID = (int)Reader["DetainID"];
-                    DetainDate = (DateTime)Reader["DetainDate"];
-                    FineFees = Convert.ToSingle(Reader["FineFees"]);
-                    CreatedByUserID = (int)Reader["CreatedByUserID"];
-                    IsReleased = (bool)Reader["IsReleased"]; 
-
-                    ReleaseDate = (Reader["ReleaseDate"] == DBNull.Value) ? DateTime.MinValue : (DateTime)Reader["ReleaseDate"];
-                    ReleasedByUserID = (Reader["ReleasedByUserID"] == DBNull.Value) ? -1 : (int)Reader["ReleasedByUserID"];
-                    ReleaseApplicationID = (Reader["ReleaseApplicationID"] == DBNull.Value) ? -1 : (int)Reader["ReleaseApplicationID"];
-                }
-                Reader.Close();
-            }
-            catch (Exception ex) { isFound = false; }
-            finally { Connection.Close(); }
-
-            return isFound;
-        }
-
-        
     }
 }

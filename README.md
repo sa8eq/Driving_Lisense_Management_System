@@ -187,6 +187,48 @@ Password: admin123
 > ⚠️ Change the default credentials immediately after first login.
 
 ---
+Getting Started
+Prerequisites
+Visual Studio 2019 or later
+SQL Server (Express or higher)
+.NET Framework 4.x
+Setup
+Clone the repository
+```bash
+   git clone https://github.com/your-username/DVLD.git
+   cd DVLD
+   ```
+Restore the database
+A full SQL Server backup file `DVLD.bak` is included in the repository.
+Using SQL Server Management Studio (SSMS):
+Open SSMS and connect to your SQL Server instance.
+Right-click Databases → Restore Database...
+Select Device → click `...` → Add → browse to and select `DVLD.bak`.
+Set the Destination Database name to `DVLD`.
+Click OK to restore.
+Using T-SQL:
+```sql
+   RESTORE DATABASE DVLD
+   FROM DISK = 'C:\\path\\to\\DVLD.bak'
+   WITH MOVE 'DVLD'     TO 'C:\\Program Files\\Microsoft SQL Server\\MSSQL\\DATA\\DVLD.mdf',
+        MOVE 'DVLD\_log' TO 'C:\\Program Files\\Microsoft SQL Server\\MSSQL\\DATA\\DVLD\_log.ldf',
+        REPLACE;
+   ```
+> ⚠️ Adjust the file paths to match your SQL Server installation directory.
+Configure the connection string
+Open `App.config` (or `appsettings.json`).
+Update the `ConnectionString` to point to your SQL Server instance.
+Build & Run
+Open `DVLD.sln` in Visual Studio.
+Build the solution (`Ctrl + Shift + B`).
+Run the application (`F5`).
+Default Login
+```
+Username: sadeq
+Password: 0295
+```
+
+   > ⚠️ Change the default credentials immediately after first login.
 
 ## Screenshots
 

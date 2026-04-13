@@ -39,7 +39,7 @@ namespace DataAccessLayer
                 }
                 Reader.Close();
             }
-            catch (Exception ex) { isFound = false; }
+            catch (Exception ex) { clsLogging.ErrorLogExceptions(ex.Message); isFound = false; }
             finally { Connection.Close(); }
 
             return isFound;
@@ -68,7 +68,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -107,6 +107,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -159,6 +160,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -203,6 +205,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return false;
             }
             finally
@@ -236,7 +239,7 @@ namespace DataAccessLayer
                     InternationalLicenseID = ID;
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { clsLogging.ErrorLogExceptions(ex.Message); }
             finally { Connection.Close(); }
 
             return InternationalLicenseID;

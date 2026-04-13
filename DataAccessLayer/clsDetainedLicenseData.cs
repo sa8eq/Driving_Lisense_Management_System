@@ -77,6 +77,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 isFound = false;
             }
             finally
@@ -120,7 +121,11 @@ namespace DataAccessLayer
                 }
                 Reader.Close();
             }
-            catch (Exception ex) { isFound = false; }
+            catch (Exception ex) 
+            {
+                clsLogging.ErrorLogExceptions(ex.Message);
+                isFound = false; 
+            }
             finally { Connection.Close(); }
 
             return isFound;
@@ -156,7 +161,10 @@ namespace DataAccessLayer
                     DetainID = insertedID;
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) 
+            {
+                clsLogging.ErrorLogExceptions(ex.Message);
+            }
             finally { Connection.Close(); }
 
             return DetainID;
@@ -194,6 +202,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return false;
             }
 
@@ -229,7 +238,11 @@ namespace DataAccessLayer
                 Connection.Open();
                 rowsAffected = Command.ExecuteNonQuery();
             }
-            catch (Exception ex) { return false; }
+            catch (Exception ex) 
+            {
+                clsLogging.ErrorLogExceptions(ex.Message);
+                return false; 
+            }
             finally { Connection.Close(); }
 
             return (rowsAffected > 0);
@@ -251,7 +264,7 @@ namespace DataAccessLayer
                 if (Reader.HasRows) dt.Load(Reader);
                 Reader.Close();
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { clsLogging.ErrorLogExceptions(ex.Message); }
             finally { Connection.Close(); }
 
             return dt;
@@ -273,7 +286,7 @@ namespace DataAccessLayer
                 object Result = Command.ExecuteScalar();
                 if (Result != null) IsDetained = true;
             }
-            catch (Exception ex) { }
+            catch (Exception ex) { clsLogging.ErrorLogExceptions(ex.Message); }
             finally { Connection.Close(); }
 
             return IsDetained;

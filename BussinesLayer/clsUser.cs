@@ -48,13 +48,15 @@ namespace BussinesLayer
 
         private bool _AddNewUser()
         {
-            this.UserID = clsUserData.AddNewUser(this.PersonID, this.Username, this.Password, this.IsActive);
+            string HashedPassword = clsHashing.ComputeHash(this.Password);
+            this.UserID = clsUserData.AddNewUser(this.PersonID, this.Username, HashedPassword, this.IsActive);
             return (this.UserID) != -1;
 
         }
         private bool _UpdateUser()
         {
-            return clsUserData.UpdateUser(this.UserID, this.PersonID, this.Username, this.Password, this.IsActive);
+            string HashedPassword = clsHashing.ComputeHash(this.Password);
+            return clsUserData.UpdateUser(this.UserID, this.PersonID, this.Username, HashedPassword, this.IsActive);
         }
         static public clsUser FindByUserID(int UserID)
         {
@@ -95,8 +97,9 @@ namespace BussinesLayer
             int _UserID = -1;
             int _PersonID = -1;
             bool _IsActive = false;
+            string HashedPassword = clsHashing.ComputeHash(Password);
 
-            bool IsFound = clsUserData.GetUserInfoByUsernameAndPassword(Username, Password ,ref _UserID, ref _PersonID, ref _IsActive);
+            bool IsFound = (clsUserData.GetUserInfoByUsernameAndPassword(Username, HashedPassword, ref _UserID, ref _PersonID, ref _IsActive));
             if(IsFound)
             {
                 return new clsUser(_UserID, _PersonID, Username, Password, _IsActive);

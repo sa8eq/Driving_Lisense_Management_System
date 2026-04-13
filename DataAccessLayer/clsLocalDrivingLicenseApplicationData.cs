@@ -32,7 +32,7 @@ namespace DataAccessLayer
             }
             catch(Exception ex)
             {
-                //throw new Exception(ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -66,7 +66,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                //throw new Exception(ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -98,7 +98,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -131,7 +131,7 @@ namespace DataAccessLayer
                     LocalDrivingLicenseApplicationID = insertedID;
                 }
             }
-            catch { /* Log error */ }
+            catch(Exception ex) { clsLogging.ErrorLogExceptions(ex.Message); }
             finally { connection.Close(); }
 
             return LocalDrivingLicenseApplicationID;
@@ -156,7 +156,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return false;
             }
             finally
@@ -185,8 +185,9 @@ namespace DataAccessLayer
             }
             catch(Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return false;
-                //throw new Exception(ex.Message);
+                
             }
             finally
             {
@@ -232,7 +233,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
 
             }
 
@@ -278,7 +279,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
 
             }
 
@@ -324,7 +325,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
 
             }
 
@@ -372,7 +373,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
 
             }
 
@@ -408,6 +409,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 isFound = false;
             }
             finally

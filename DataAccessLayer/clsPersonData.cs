@@ -78,8 +78,9 @@ namespace DataAccessLayer
             }
             catch(Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 IsFound = false;
-                throw new Exception(ex.Message);
+                
             }
             finally
             {
@@ -159,8 +160,9 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 IsFound = false;
-                throw new Exception(ex.Message);
+                
             }
             finally
             {
@@ -233,7 +235,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("SQL Database Error: " + ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
 
             }
             finally
@@ -309,7 +311,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -346,7 +348,7 @@ namespace DataAccessLayer
             }
             catch(Exception ex)
             {
-                throw new Exception(ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -373,7 +375,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -402,8 +404,9 @@ namespace DataAccessLayer
             }
             catch(Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 IsFound = false;
-                throw new Exception(ex.Message);
+                
             }
             finally
             {
@@ -433,8 +436,9 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 IsFound = false;
-                throw new Exception(ex.Message);
+                
             }
             finally
             {

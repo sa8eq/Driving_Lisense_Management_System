@@ -1,6 +1,9 @@
 ﻿using BussinesLayer;
+using Microsoft.Win32;
 using System;
 using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace DVLD.Classess
 {
@@ -15,22 +18,15 @@ namespace DVLD.Classess
 
         public static bool RememberUserNameAndPassword(string Username, string Password)
         {
+            string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";
+            string regUsername = "Username";
+            string regPassword = "Password";
             try
             {
-                if (!Directory.Exists(_FolderName))
-                {
-                    Directory.CreateDirectory(_FolderName);
-                }
 
-                if (string.IsNullOrEmpty(Username))
-                {
-                    if (File.Exists(_FilePath))
-                        File.Delete(_FilePath);
-                    return true;
-                }
-
-                string dataToSave = Username + "#//#" + Password;
-                File.WriteAllText(_FilePath, dataToSave);
+                Registry.SetValue(keyPath, regUsername,Username,RegistryValueKind.String);
+                Registry.SetValue(keyPath, regPassword, Password, RegistryValueKind.String);
+                
 
                 return true;
             }
@@ -42,25 +38,27 @@ namespace DVLD.Classess
 
         public static bool GetStoredCredentials(ref string Username, ref string Password)
         {
+            string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";
+            string regUsername = "Username";
+            string regPassword = "Password";
             try
             {
-                if (File.Exists(_FilePath))
-                {
-                    string fileContent = File.ReadAllText(_FilePath);
-                    string[] result = fileContent.Split(new string[] { "#//#" }, StringSplitOptions.None);
-
-                    if (result.Length == 2)
-                    {
-                        Username = result[0];
-                        Password = result[1];
-                        return true;
-                    }
-                }
-                return false;
+                Username = Registry.GetValue(keyPath, regUsername, null) as string;
+                Password = Registry.GetValue(keyPath, regPassword, null) as string;
+                
+                return true;
             }
             catch (Exception ex)
             {
                 return false;
+            }
+        }
+        public static string HashPassword(string Password)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] HashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(Password));
+                return BitConverter.ToString(HashedBytes).Replace("-", "").ToLower();
             }
         }
     }

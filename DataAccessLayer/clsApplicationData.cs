@@ -59,6 +59,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 isFound = false;
             }
             finally
@@ -88,7 +89,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -127,7 +128,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                throw new Exception("SQL Database Error: " + ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
 
             }
             finally
@@ -159,6 +160,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return false;
             }
             finally
@@ -187,6 +189,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 rowsAffected = 0;
             }
             finally
@@ -216,6 +219,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 isFound = false;
             }
             finally
@@ -250,6 +254,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 ActiveApplicationID = -1;
             }
             finally
@@ -292,7 +297,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return ActiveApplicationID;
             }
             finally
@@ -325,6 +330,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return false;
             }
             finally

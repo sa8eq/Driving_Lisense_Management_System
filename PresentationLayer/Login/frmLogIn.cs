@@ -46,17 +46,22 @@ namespace DVLD
         {
             clsUser User = clsUser.FindUserByUserNameAndPassword(txtUsername.Text, txtPassword.Text);
 
+
             if (User != null)
             {
-                if(cbxRemmemberMe.Checked)
+                
+               
+
+                if (cbxRemmemberMe.Checked)
                 {
-                    clsGlobal.RememberUserNameAndPassword(txtUsername.Text.Trim(),txtPassword.Text.Trim());
+
+                    clsGlobal.RememberUserNameAndPassword(txtUsername.Text.Trim(), txtPassword.Text.Trim());
                 }
                 else
                 {
                     clsGlobal.RememberUserNameAndPassword("", "");
                 }
-             
+
                 if (!User.IsActive)
                 {
                     MessageBox.Show("Your Account Is DeActivated. Please Contact Your Admin");
@@ -69,6 +74,7 @@ namespace DVLD
                 frm.ShowDialog();
 
             }
+
             else
             {
                 MessageBox.Show("Invalid Username/Password");
@@ -84,7 +90,7 @@ namespace DVLD
         private void frmLogIn_Load(object sender, EventArgs e)
         {
             string Username = "", Password = "";
-            if(clsGlobal.GetStoredCredentials(ref Username, ref Password))
+            if (clsGlobal.GetStoredCredentials(ref Username, ref Password))
             {
                 txtUsername.Text = Username;
                 txtPassword.Text = Password;

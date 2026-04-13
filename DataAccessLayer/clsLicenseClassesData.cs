@@ -26,9 +26,9 @@ namespace DataAccessLayer
                 }
                 Reader.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -62,7 +62,7 @@ namespace DataAccessLayer
                 }
                 reader.Close();
             }
-            catch { isFound = false; }
+            catch(Exception ex) { clsLogging.ErrorLogExceptions(ex.Message); isFound = false; }
             finally { connection.Close(); }
             return isFound;
         }
@@ -92,7 +92,7 @@ namespace DataAccessLayer
                 }
                 reader.Close();
             }
-            catch { isFound = false; }
+            catch(Exception ex) { clsLogging.ErrorLogExceptions(ex.Message); isFound = false; }
             finally { connection.Close(); }
 
             return isFound;
@@ -141,7 +141,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
 
             }
 
@@ -189,7 +189,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return false;
             }
 

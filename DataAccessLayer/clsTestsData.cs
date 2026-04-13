@@ -101,6 +101,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 isFound = false;
             }
             finally
@@ -131,7 +132,7 @@ namespace DataAccessLayer
             }
             catch(Exception ex)
             {
-
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -185,7 +186,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
-
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
 
             finally
@@ -228,6 +229,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return false;
             }
 
@@ -269,7 +271,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
-
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
 
             finally

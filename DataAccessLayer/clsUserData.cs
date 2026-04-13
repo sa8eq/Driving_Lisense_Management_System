@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Net;
 using DataAccessSettings;
 using System.Linq;
+using System.Diagnostics;
 
 namespace DataAccessLayer
 {
@@ -44,6 +45,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 isFound = false;
             }
             finally
@@ -88,6 +90,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 isFound = false;
             }
             finally
@@ -110,9 +113,9 @@ namespace DataAccessLayer
             {
                 Connection.Open();
                 SqlDataReader Reader = Command.ExecuteReader();
-                if(Reader.Read())
+                if (Reader.Read())
                 {
-                    
+
                     UserID = (int)Reader["UserID"];
                     PersonID = (int)Reader["PersonID"];
                     IsActive = (bool)Reader["IsActive"];
@@ -128,9 +131,9 @@ namespace DataAccessLayer
                     return IsFound;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -166,7 +169,8 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
+
             }
             finally
             {
@@ -198,7 +202,11 @@ namespace DataAccessLayer
                 connection.Open();
                 rowsAffected = command.ExecuteNonQuery();
             }
-            catch { return false; }
+            catch (Exception ex)
+            {
+                clsLogging.ErrorLogExceptions(ex.Message);
+                return false;
+            }
             finally { connection.Close(); }
 
             return (rowsAffected > 0);
@@ -223,7 +231,7 @@ namespace DataAccessLayer
             {
                 Connection.Open();
                 SqlDataReader Reader = Command.ExecuteReader();
-                if(Reader.HasRows)
+                if (Reader.HasRows)
                 {
                     dt.Load(Reader);
                 }
@@ -232,7 +240,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -240,7 +248,7 @@ namespace DataAccessLayer
             }
             return dt;
         }
-        
+
         static public bool DeleteUser(int UserID)
         {
             int AffectedRows = 0;
@@ -253,9 +261,9 @@ namespace DataAccessLayer
                 Connection.Open();
                 AffectedRows = Command.ExecuteNonQuery();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -277,7 +285,11 @@ namespace DataAccessLayer
                 object result = command.ExecuteScalar();
                 isFound = (result != null);
             }
-            catch { isFound = false; }
+            catch (Exception ex)
+            {
+                clsLogging.ErrorLogExceptions(ex.Message);
+                isFound = false;
+            }
             finally { connection.Close(); }
 
             return isFound;
@@ -296,7 +308,11 @@ namespace DataAccessLayer
                 object result = command.ExecuteScalar();
                 isFound = (result != null);
             }
-            catch { isFound = false; }
+            catch (Exception ex)
+            {
+                clsLogging.ErrorLogExceptions(ex.Message);
+                isFound = false;
+            }
             finally { connection.Close(); }
 
             return isFound;
@@ -316,37 +332,46 @@ namespace DataAccessLayer
                 object result = command.ExecuteScalar();
                 isFound = (result != null);
             }
-            catch { isFound = false; }
+            catch (Exception ex)
+            {
+                clsLogging.ErrorLogExceptions(ex.Message);
+                isFound = false;
+            }
             finally { connection.Close(); }
 
             return isFound;
         }
-        
+
         public static bool ChangePassword(int UserID, string NewPassword)
         {
-            int RowAffected = 0;
-            SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"update User set Password = @Password where UserID = @UserID";
-            SqlCommand Command = new SqlCommand(query, Connection);
-            Command.Parameters.AddWithValue("@UserID", UserID);
-            Command.Parameters.AddWithValue("@Password", NewPassword);
+            {
+                {
+                    int RowAffected = 0;
+                    SqlConnection Connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+                    string query = @"update User set Password = @Password where UserID = @UserID";
+                    SqlCommand Command = new SqlCommand(query, Connection);
+                    Command.Parameters.AddWithValue("@UserID", UserID);
+                    Command.Parameters.AddWithValue("@Password", NewPassword);
 
-            try
-            {
-                Connection.Open();
-                RowAffected = Command.ExecuteNonQuery();
-                Connection.Close();
+                    try
+                    {
+                        Connection.Open();
+                        RowAffected = Command.ExecuteNonQuery();
+                        Connection.Close();
+                    }
+                    catch (Exception ex)
+                    {
+
+                        clsLogging.ErrorLogExceptions(ex.Message);
+                    }
+                    finally
+                    {
+                        Connection.Close();
+                    }
+                    return (RowAffected > 0);
+                }
+
             }
-            catch(Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                Connection.Close();
-            }
-            return (RowAffected>0);
         }
-
     }
 }

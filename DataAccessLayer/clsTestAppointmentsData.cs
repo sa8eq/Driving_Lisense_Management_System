@@ -1,5 +1,6 @@
 ﻿using DataAccessSettings;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -43,7 +44,11 @@ namespace DataAccessLayer
                 }
                 reader.Close();
             }
-            catch { isFound = false; }
+            catch(Exception ex) 
+            {
+                clsLogging.ErrorLogExceptions(ex.Message);
+                isFound = false; 
+            }
             finally { connection.Close(); }
 
             return isFound;
@@ -104,6 +109,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 isFound = false;
             }
             finally
@@ -135,6 +141,7 @@ namespace DataAccessLayer
             }
             catch(Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return null;
             }
             finally
@@ -183,7 +190,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
-
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -234,6 +241,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
@@ -289,6 +297,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return false;
             }
             finally
@@ -326,6 +335,7 @@ namespace DataAccessLayer
 
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 throw new Exception(ex.Message);
             }
 

@@ -45,6 +45,7 @@ namespace DVLD.Persons
 
         private void txtCurrentPassword_Validating(object sender, CancelEventArgs e)
         {
+            
             if(string.IsNullOrEmpty(txtCurrentPassword.Text.Trim()))
             {
                 e.Cancel = true;
@@ -55,7 +56,7 @@ namespace DVLD.Persons
             {
                 errorProvider1.SetError(txtCurrentPassword, null);
             }
-            if(txtCurrentPassword.Text!=_User.Password)
+            if(!clsHashing.CompareHash(txtCurrentPassword.Text,_User.Password))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtCurrentPassword, "Current Password Doesnt Match");

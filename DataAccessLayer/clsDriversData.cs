@@ -38,7 +38,7 @@ namespace DataAccessLayer
                 }
                 reader.Close();
             }
-            catch (Exception) { isFound = false; }
+            catch (Exception ex) { clsLogging.ErrorLogExceptions(ex.Message); isFound = false; }
             finally { connection.Close(); }
 
             return isFound;
@@ -66,7 +66,7 @@ namespace DataAccessLayer
                 }
                 reader.Close();
             }
-            catch (Exception) { isFound = false; }
+            catch (Exception ex) { clsLogging.ErrorLogExceptions(ex.Message); isFound = false; }
             finally { connection.Close(); }
 
             return isFound;
@@ -89,7 +89,7 @@ namespace DataAccessLayer
                 if (reader.HasRows) dt.Load(reader);
                 reader.Close();
             }
-            catch (Exception) { }
+            catch (Exception ex) { clsLogging.ErrorLogExceptions(ex.Message); }
             finally { connection.Close(); }
 
             return dt;
@@ -117,7 +117,7 @@ namespace DataAccessLayer
                     DriverID = insertedID;
                 }
             }
-            catch (Exception) { }
+            catch (Exception ex) { clsLogging.ErrorLogExceptions(ex.Message); }
             finally { connection.Close(); }
 
             return DriverID;
@@ -147,6 +147,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
+                clsLogging.ErrorLogExceptions(ex.Message);
                 return false;
             }
 

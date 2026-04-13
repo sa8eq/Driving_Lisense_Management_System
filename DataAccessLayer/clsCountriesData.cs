@@ -33,8 +33,8 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                throw;
-                
+                clsLogging.ErrorLogExceptions(ex.Message);
+
             }
             finally
             {
@@ -69,7 +69,7 @@ namespace DataAccessLayer
             }
             catch (Exception ex)
             {
-                throw;
+                clsLogging.ErrorLogExceptions(ex.Message);
 
             }
             finally
@@ -100,7 +100,7 @@ namespace DataAccessLayer
             }
             catch(Exception ex)
             {
-                throw;
+                clsLogging.ErrorLogExceptions(ex.Message);
             }
             finally
             {
